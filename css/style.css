@@ -1,0 +1,245 @@
+/* Основные стили для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    justify-content: center;
+    align-items: center;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Хедер с логотипом и иконкой */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+/* Логотип */
+header .logo img {
+    position: absolute;
+    top: 12px;
+    left: 55px;
+    width: 110px; /* Увеличиваем размер логотипа */
+    height: auto; /* Сохраняем пропорции */
+}
+
+/* Иконка авторизации */
+header .auth-icon img {
+    height: 40px;  /* Размер иконки авторизации */
+    position: absolute;
+    top: 55px;
+    right: 65px;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*Меню*/
+nav.menu {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем меню */
+    background-color: #f8f5f5; /* Светлый фон для меню */
+    padding: 5px 40px;  /* Уменьшаем высоту меню */
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для меню */
+    display: flex;
+    justify-content: space-evenly; /* Равномерное распределение пунктов */
+    width: 60%;  /* Меню теперь будет занимать 60% от ширины экрана */
+    margin-bottom: 0; /* Убираем отступ снизу у меню */
+}
+
+
+/* Список элементов меню */
+nav.menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Меню будет занимать всю доступную ширину */
+    justify-content: space-evenly; /* Равномерное распределение элементов */
+}
+
+/* Элементы меню */
+nav.menu ul li {
+    display: inline;
+}
+
+nav.menu ul li a {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #656363;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 100px;
+    transition: all 0.3s ease; /* Плавные переходы для всех свойств */
+    display: inline-block;
+    text-align: center; /* Центрируем текст внутри ссылок */
+}
+
+/* Эффект при наведении */
+nav.menu ul li a:hover {
+    background-color: #71448056;  /* Легкий розовый оттенок при наведении */
+    color: #fff;  /* Белый цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение элемента */
+}
+
+/* Стиль для выбранного пункта */
+nav.menu ul li a.selected {
+    background-color: #71448085; /* Яркий фиолетовый цвет для выбранного пункта */
+    color: #fff;
+    transform: scale(1.1); /* Увеличение выбранного элемента */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для выделенного пункта */
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Главное изображение */
+.main-image {
+    position: absolute;
+    top: 120px; /* Отступ сверху */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Сдвигаем на 50% влево для точного центрирования */
+    width: 100%; /* Оставляем 100% ширины от экрана */
+    max-width: 1300px; /* Максимальная ширина */
+    height: 700px; /* Высота изображения */
+    background: url('assets/images/index.svg') no-repeat center center;
+    background-size: cover;
+    border-radius: 15px;
+    z-index: 1; /* Понижаем z-index, чтобы другие элементы могли быть сверху */
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0;
+}
+
+/* Картинка text.png */
+.text-image {
+    position: absolute; /* Позиционируем относительно родительского элемента */
+    top: 520px; /* Делаем отступ сверху, чтобы картинка была на уровне .main-image */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Сдвигаем на 50% влево для точного центрирования */
+    width: 700px; /* Ширина картинки text.png */
+    z-index: 2; /* Устанавливаем более высокий z-index, чтобы картинка была поверх .main-image */
+    margin-top: 10px; /* Отступ сверху для картинки */
+}
+
+/* Картинка с текстом */
+.text-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Стили для приветственного сообщения */
+.welcome-message {
+    position: absolute;
+    width: 1557px;
+    height: 93px;
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
+    top: 745px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    text-align: center;
+    color: #714480f6;
+    z-index: 3; /* Повыше, чтобы сообщение отображалось поверх других элементов */
+}
+
+/* Стили для описания */
+.description-message {
+    position: absolute;
+    top: 885px; /* Расположение от верхнего края */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
+    width: 1374px; /* Ширина блока */
+    height: 160px; /* Высота блока */
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center; /* Центрируем текст */
+    letter-spacing: -1px; /* Уменьшаем межбуквенный интервал */
+    color: #656363; /* Цвет текста */
+    z-index: 2; /* Устанавливаем порядок отображения */
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Карточки */
+.container {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding-left: 200px; /* Добавляем отступ слева */
+    padding-top: 950px;
+}
+
+.card {
+    position: relative;
+    background: linear-gradient(145deg, #e9d5f7, #f7eefc);
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(153, 102, 204, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(153, 102, 204, 0.3);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: transform 0.6s ease;
+}
+
+.card:hover::before {
+    transform: scale(1.5);
+}
+
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #6c3b8e;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #4b2e56;
+}
+
+/* Адаптивный дизайн для маленьких экранов */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
