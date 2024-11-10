@@ -194,16 +194,15 @@ nav.menu ul li a.selected {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Основное изображение */
-/* Основное изображение */
 .main-image {
     position: relative;
-    width: 80%; /* Ширина для адаптации, меньше чем 90% */
+    width: 80%;
     max-width: 1300px;
     height: auto;
     background-size: cover;
     border-radius: 15px;
     margin: 0 auto;
-    margin-left: 10%; /* Меньше расстояние слева */
+    margin-left: 10%;
     z-index: 1;
 }
 
@@ -218,15 +217,14 @@ nav.menu ul li a.selected {
 /* Текстовое изображение поверх основного изображения */
 .text-image {
     position: absolute;
-    bottom: 5%; /* Опускаем текстовое изображение ниже */
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; /* Пропорциональная ширина для адаптации */
+    width: 70%;
     max-width: 700px;
     z-index: 2;
 }
 
-/* Картинка с текстом */
 .text-image img {
     width: 100%;
     height: auto;
@@ -234,6 +232,7 @@ nav.menu ul li a.selected {
     display: block;
     margin: 0;
 }
+
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
@@ -262,43 +261,40 @@ nav.menu ul li a.selected {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Стили для приветственного сообщения */
-/* Стили для приветственного сообщения */
 .welcome-message {
-    position: absolute;
-    width: 100%; /* Расширяем на 100% ширины экрана */
-    max-width: 1557px; /* Максимальная ширина */
+    position: relative;
+    width: 100%;
+    max-width: 1557px;
     height: 93px;
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
-    top: 745px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 600;
     font-size: 34px;
     line-height: 41px;
     text-align: center;
     color: #714480f6;
-    z-index: 3; /* Повыше, чтобы сообщение отображалось поверх других элементов */
+    z-index: 3;
+    top: 3vh;
 }
 
 /* Стили для описания */
 .description-message {
-    position: absolute;
-    top: 885px; /* Расположение от верхнего края */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
-    width: 100%; /* Расширяем на 100% ширины экрана */
-    max-width: 1374px; /* Максимальная ширина */
-    height: auto; /* Высота будет зависеть от контента */
+    position: relative;
+    top: 3vh; /* Меньший отступ между welcome-message и description-message */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1374px;
+    height: auto;
     font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 40px;
-    text-align: center; /* Центрируем текст */
-    letter-spacing: -1px; /* Уменьшаем межбуквенный интервал */
-    color: #656363; /* Цвет текста */
-    z-index: 2; /* Устанавливаем порядок отображения */
+    text-align: center;
+    letter-spacing: -1px;
+    color: #656363;
+    z-index: 2;
 }
 
 /* Адаптивные стили */
@@ -306,47 +302,47 @@ nav.menu ul li a.selected {
 /* Для экранов меньше 1200px */
 @media (max-width: 1200px) {
     .welcome-message {
-        font-size: 28px; /* Уменьшаем размер шрифта */
+        font-size: 28px;
         line-height: 34px;
-        top: 680px; /* Снижаем расстояние от картинки */
+        top: 4vh; /* Уменьшенное расстояние */
     }
 
     .description-message {
-        font-size: 26px; /* Уменьшаем размер шрифта */
+        font-size: 26px;
         line-height: 32px;
-        top: 815px; /* Снижаем расстояние от картинки */
+        top: 3vh; /* Меньший отступ */
     }
 }
 
 /* Для экранов меньше 768px */
 @media (max-width: 768px) {
     .welcome-message {
-        font-size: 24px; /* Уменьшаем размер шрифта */
+        font-size: 24px;
         line-height: 28px;
-        top: 640px; /* Снижаем расстояние от картинки */
+        top: 3vh; /* Еще меньшее расстояние */
     }
 
     .description-message {
-        font-size: 22px; /* Уменьшаем размер шрифта */
+        font-size: 22px;
         line-height: 26px;
-        top: 760px; /* Снижаем расстояние от картинки */
-        width: 90%; /* Ширина 90% от экрана */
+        top: 2vh; /* Меньший отступ */
+        width: 90%;
     }
 }
 
 /* Для экранов меньше 480px */
 @media (max-width: 480px) {
     .welcome-message {
-        font-size: 20px; /* Еще меньше для мобильных */
+        font-size: 20px;
         line-height: 24px;
-        top: 600px; /* Снижаем расстояние от картинки */
+        top: 2vh; /* Минимальное расстояние */
     }
 
     .description-message {
-        font-size: 18px; /* Еще меньше для мобильных */
+        font-size: 18px;
         line-height: 22px;
-        top: 720px; /* Снижаем расстояние от картинки */
-        width: 90%; /* Ширина 90% от экрана */
+        top: 1vh; /* Минимальный отступ */
+        width: 90%;
     }
 }
 
@@ -358,9 +354,9 @@ nav.menu ul li a.selected {
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center; /* Центрируем карточки по горизонтали */
-    margin: 0 auto; /* Центрируем контейнер на странице */
-    padding-top: 950px;
+    margin: 60px auto 0; /* Увеличиваем отступ сверху для всех экранов */
 }
+
 
 .card {
     position: relative;
