@@ -1,88 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Направления коллектива "Candy Drop"</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5eefc;
-            color: #4b2e56;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .card {
-            position: relative;
-            background: linear-gradient(145deg, #e9d5f7, #f7eefc);
-            border-radius: 25px;
-            padding: 40px 30px;
-            width: 250px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(153, 102, 204, 0.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(153, 102, 204, 0.3);
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transition: transform 0.6s ease;
-        }
-
-        .card:hover::before {
-            transform: scale(1.5);
-        }
-
-        .title {
-            font-size: 1.6em;
-            font-weight: bold;
-            color: #6c3b8e;
-            margin-bottom: 15px;
-        }
-
-        .description {
-            font-size: 1em;
-            line-height: 1.5;
-            color: #4b2e56;
-        }
-
-        /* Адаптивный дизайн для маленьких экранов */
-        @media (max-width: 768px) {
-            .card {
-                width: 90%;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <title>Candy Drop</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="assets\icons\Logo.svg" alt="Candy Drop Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#" class="selected">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Достижения</a></li>
+                <li><a href="#">Запись</a></li>
+            </ul>            
+        </nav>
+        <div class="auth-icon">
+            <img src="assets/icons/User.svg" alt="Login Icon">
+        </div>
+    </header>
 
+    <!-- Главное изображение под меню -->
+    <div class="main-image">
+        <img src="assets/images/index.svg" alt="Main Image">
+        <div class="text-image">
+            <img src="assets/images/text.png" alt="Text Image">
+        </div>
+    </div>
+    
+    
+  
+    <!-- Основное содержание страницы -->
+    <main>
+        <div class="welcome-message">
+            Добро пожаловать в мир творчества и движения вместе с хореографическим коллективом "CANDY DROP"!
+        </div>
+        <div class="description-message">
+            Мы открываем двери для детей от 3 до 15 лет, независимо от уровня подготовки и целей. 
+            У нас каждый найдет для себя что-то особенное — будь то групповые или индивидуальные занятия, 
+            которые помогут раскрыть талант и развить уверенность.
+        </div>
+            
+        <!-- Контент с карточками -->
 <div class="container">
     <div class="card">
         <div class="title">Классический танец</div>
@@ -105,6 +68,25 @@
         <div class="description">Новейшие движения и стили. Развитие креативности и самовыражения.</div>
     </div>
 </div>
+<div class="group-images">
+    <div class="group-card">
+        <img src="assets/images/junior group.svg" alt="Junior Group">
+        <div class="group-text">Младшая группа</div>
+    </div>
+    <div class="group-card">
+        <img src="assets/images/middle group.svg" alt="Middle Group">
+        <div class="group-text">Средняя группа</div>
+    </div>
+    <div class="group-card">
+        <img src="assets/images/senior group.svg" alt="Senior Group">
+        <div class="group-text">Старшая группа</div>
+    </div>
+</div>
 
+    </main>
+
+    <footer>
+        <!-- Подвал сайта -->
+    </footer>
 </body>
 </html>

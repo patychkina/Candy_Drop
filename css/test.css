@@ -1,4 +1,5 @@
 /* Основные стили для всей страницы */
+/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,34 +8,78 @@ body {
     justify-content: center;
     align-items: center;
 }
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 /* Хедер с логотипом и иконкой */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    margin-bottom: 0; /* Убираем отступ снизу */
+    margin-bottom: 0;
 }
 
 /* Логотип */
 header .logo img {
-    position: absolute;
-    top: 12px;
-    left: 55px;
-    width: 110px; /* Увеличиваем размер логотипа */
-    height: auto; /* Сохраняем пропорции */
+    width: 110px;
+    height: auto;
+    transition: width 0.3s ease; /* Плавное изменение размера логотипа */
 }
 
 /* Иконка авторизации */
 header .auth-icon img {
-    height: 40px;  /* Размер иконки авторизации */
-    position: absolute;
-    top: 55px;
-    right: 65px;
+    height: 40px;
+    transition: height 0.3s ease; /* Плавное изменение размера иконки */
 }
+
+/* Адаптивный дизайн для разных экранов */
+
+/* Для экранов с шириной менее 1200px (например, планшеты и большие экраны ноутбуков) */
+@media (max-width: 1200px) {
+    header {
+        padding: 20px 30px;
+    }
+    header .logo img {
+        width: 90px;
+    }
+    header .auth-icon img {
+        height: 35px;
+    }
+}
+
+/* Для экранов с шириной менее 768px (планшеты и мобильные устройства) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    header .logo img {
+        width: 80px; /* Уменьшаем логотип */
+    }
+
+    header .auth-icon img {
+        height: 30px; /* Уменьшаем иконку */
+    }
+}
+
+/* Для экранов с шириной менее 480px (мобильные устройства) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    header .logo img {
+        width: 70px; /* Еще меньше логотип */
+    }
+
+    header .auth-icon img {
+        height: 25px; /* Еще меньше иконка */
+    }
+}
+
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*Меню*/
+/* Основные стили для меню */
 nav.menu {
     position: absolute;
     top: 40px;
@@ -49,7 +94,6 @@ nav.menu {
     width: 60%;  /* Меню теперь будет занимать 60% от ширины экрана */
     margin-bottom: 0; /* Убираем отступ снизу у меню */
 }
-
 
 /* Список элементов меню */
 nav.menu ul {
@@ -93,20 +137,74 @@ nav.menu ul li a.selected {
     transform: scale(1.1); /* Увеличение выбранного элемента */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для выделенного пункта */
 }
+
+/* Адаптивные стили */
+
+/* Для экранов с шириной менее 1200px */
+@media (max-width: 1200px) {
+    nav.menu {
+        width: 70%; /* Уменьшаем ширину меню */
+        padding: 5px 30px; /* Уменьшаем отступы */
+    }
+
+    nav.menu ul li a {
+        font-size: 18px; /* Уменьшаем размер шрифта */
+        padding: 8px 20px; /* Уменьшаем отступы для ссылок */
+    }
+}
+
+/* Для экранов с шириной менее 992px */
+@media (max-width: 992px) {
+    nav.menu {
+        width: 60%; /* Меню теперь будет занимать 60% ширины экрана */
+        padding: 5px 25px; /* Уменьшаем отступы */
+    }
+
+    nav.menu ul li a {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+        padding: 7px 15px; /* Уменьшаем отступы для ссылок */
+    }
+}
+
+/* Для экранов с шириной менее 768px */
+@media (max-width: 768px) {
+    nav.menu {
+        width: 50%; /* Меню теперь будет занимать 50% ширины экрана */
+        padding: 5px 20px; /* Уменьшаем отступы */
+    }
+
+    nav.menu ul li a {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        padding: 6px 12px; /* Уменьшаем отступы для ссылок */
+    }
+}
+
+/* Для экранов с шириной менее 480px */
+@media (max-width: 480px) {
+    nav.menu {
+        width: 100%; /* Меню теперь будет занимать всю ширину экрана */
+        padding: 5px 15px; /* Уменьшаем отступы */
+    }
+
+    nav.menu ul li a {
+        font-size: 12px; /* Еще больше уменьшаем размер шрифта */
+        padding: 5px 10px; /* Уменьшаем отступы */
+    }
+}
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Главное изображение */
+/* Основное изображение */
+/* Основное изображение */
 .main-image {
-    position: absolute;
-    top: 120px; /* Отступ сверху */
-    left: 50%; /* Центрирование по горизонтали */
-    transform: translateX(-50%); /* Сдвигаем на 50% влево для точного центрирования */
-    width: 100%; /* Оставляем 100% ширины от экрана */
-    max-width: 1300px; /* Максимальная ширина */
-    height: 700px; /* Высота изображения */
-    background: url('assets/images/index.svg') no-repeat center center;
+    position: relative;
+    width: 80%; /* Ширина для адаптации, меньше чем 90% */
+    max-width: 1300px;
+    height: auto;
     background-size: cover;
     border-radius: 15px;
-    z-index: 1; /* Понижаем z-index, чтобы другие элементы могли быть сверху */
+    margin: 0 auto;
+    margin-left: 10%; /* Меньше расстояние слева */
+    z-index: 1;
 }
 
 .main-image img {
@@ -117,15 +215,15 @@ nav.menu ul li a.selected {
     margin: 0;
 }
 
-/* Картинка text.png */
+/* Текстовое изображение поверх основного изображения */
 .text-image {
-    position: absolute; /* Позиционируем относительно родительского элемента */
-    top: 520px; /* Делаем отступ сверху, чтобы картинка была на уровне .main-image */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translateX(-50%); /* Сдвигаем на 50% влево для точного центрирования */
-    width: 700px; /* Ширина картинки text.png */
-    z-index: 2; /* Устанавливаем более высокий z-index, чтобы картинка была поверх .main-image */
-    margin-top: 10px; /* Отступ сверху для картинки */
+    position: absolute;
+    bottom: 5%; /* Опускаем текстовое изображение ниже */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%; /* Пропорциональная ширина для адаптации */
+    max-width: 700px;
+    z-index: 2;
 }
 
 /* Картинка с текстом */
@@ -136,11 +234,39 @@ nav.menu ul li a.selected {
     display: block;
     margin: 0;
 }
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .main-image {
+        width: 90%; /* Увеличиваем ширину на маленьких экранах */
+        margin-left: 5%; /* Меньше расстояние слева */
+    }
+
+    .text-image {
+        width: 60%; /* Уменьшаем ширину текстового изображения пропорционально */
+        bottom: 10%; /* Корректируем позицию немного ниже */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-image {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .text-image {
+        width: 50%; /* Уменьшаем еще больше для мобильных устройств */
+        bottom: 5%; /* Еще ниже текстовое изображение */
+    }
+}
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Стили для приветственного сообщения */
 /* Стили для приветственного сообщения */
 .welcome-message {
     position: absolute;
-    width: 1557px;
+    width: 100%; /* Расширяем на 100% ширины экрана */
+    max-width: 1557px; /* Максимальная ширина */
     height: 93px;
     left: 50%; /* Центрируем по горизонтали */
     transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
@@ -161,8 +287,9 @@ nav.menu ul li a.selected {
     top: 885px; /* Расположение от верхнего края */
     left: 50%; /* Центрируем по горизонтали */
     transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
-    width: 1374px; /* Ширина блока */
-    height: 160px; /* Высота блока */
+    width: 100%; /* Расширяем на 100% ширины экрана */
+    max-width: 1374px; /* Максимальная ширина */
+    height: auto; /* Высота будет зависеть от контента */
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -172,6 +299,55 @@ nav.menu ul li a.selected {
     letter-spacing: -1px; /* Уменьшаем межбуквенный интервал */
     color: #656363; /* Цвет текста */
     z-index: 2; /* Устанавливаем порядок отображения */
+}
+
+/* Адаптивные стили */
+
+/* Для экранов меньше 1200px */
+@media (max-width: 1200px) {
+    .welcome-message {
+        font-size: 28px; /* Уменьшаем размер шрифта */
+        line-height: 34px;
+        top: 680px; /* Снижаем расстояние от картинки */
+    }
+
+    .description-message {
+        font-size: 26px; /* Уменьшаем размер шрифта */
+        line-height: 32px;
+        top: 815px; /* Снижаем расстояние от картинки */
+    }
+}
+
+/* Для экранов меньше 768px */
+@media (max-width: 768px) {
+    .welcome-message {
+        font-size: 24px; /* Уменьшаем размер шрифта */
+        line-height: 28px;
+        top: 640px; /* Снижаем расстояние от картинки */
+    }
+
+    .description-message {
+        font-size: 22px; /* Уменьшаем размер шрифта */
+        line-height: 26px;
+        top: 760px; /* Снижаем расстояние от картинки */
+        width: 90%; /* Ширина 90% от экрана */
+    }
+}
+
+/* Для экранов меньше 480px */
+@media (max-width: 480px) {
+    .welcome-message {
+        font-size: 20px; /* Еще меньше для мобильных */
+        line-height: 24px;
+        top: 600px; /* Снижаем расстояние от картинки */
+    }
+
+    .description-message {
+        font-size: 18px; /* Еще меньше для мобильных */
+        line-height: 22px;
+        top: 720px; /* Снижаем расстояние от картинки */
+        width: 90%; /* Ширина 90% от экрана */
+    }
 }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -241,6 +417,53 @@ nav.menu ul li a.selected {
     }
 }
 
-
-
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Контейнер для фотографий */
+.group-images {
+    display: flex;
+    gap: 70px; /* Увеличиваем расстояние между карточками */
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Оформление каждой карточки */
+.group-card {
+    position: relative;
+    width: 400px; /* Увеличиваем ширину карточки */
+    height: auto; /* Задаем высоту для более крупного вида */
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Эффекты увеличения и затемнения при наведении */
+.group-card img {
+    width: 100%;
+    height: 100%; /* Заполняет всю карточку */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.group-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+
+/* Текст с названием группы */
+.group-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 24px; /* Увеличиваем шрифт для лучшей читаемости */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Появление текста при наведении */
+.group-card:hover .group-text {
+    opacity: 1;
+}
