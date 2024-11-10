@@ -197,7 +197,7 @@ nav.menu ul li a.selected {
 .main-image {
     position: relative;
     width: 80%;
-    max-width: 1300px;
+    max-width: 2000px;
     height: auto;
     background-size: cover;
     border-radius: 15px;
