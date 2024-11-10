@@ -181,8 +181,8 @@ nav.menu ul li a.selected {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    justify-content: center;
-    padding-left: 200px; /* Добавляем отступ слева */
+    justify-content: center; /* Центрируем карточки по горизонтали */
+    margin: 0 auto; /* Центрируем контейнер на странице */
     padding-top: 950px;
 }
 
@@ -236,10 +236,58 @@ nav.menu ul li a.selected {
 /* Адаптивный дизайн для маленьких экранов */
 @media (max-width: 768px) {
     .card {
-        width: 90%;
+        width: 90%; /* Карточка будет занимать 90% ширины экрана на маленьких устройствах */
         margin-bottom: 20px;
     }
 }
 
-
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Контейнер для фотографий */
+.group-images {
+    display: flex;
+    gap: 70px; /* Увеличиваем расстояние между карточками */
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Оформление каждой карточки */
+.group-card {
+    position: relative;
+    width: 400px; /* Увеличиваем ширину карточки */
+    height: auto; /* Задаем высоту для более крупного вида */
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Эффекты увеличения и затемнения при наведении */
+.group-card img {
+    width: 100%;
+    height: 100%; /* Заполняет всю карточку */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.group-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+
+/* Текст с названием группы */
+.group-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 24px; /* Увеличиваем шрифт для лучшей читаемости */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Появление текста при наведении */
+.group-card:hover .group-text {
+    opacity: 1;
+}
