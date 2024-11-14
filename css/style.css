@@ -191,6 +191,24 @@ nav.menu ul li a.selected {
         padding: 5px 10px; /* Уменьшаем отступы */
     }
 }
+/* Для экранов с шириной менее 240px */
+@media (max-width: 240px) {
+    nav.menu {
+        width: 100%; /* Меню занимает всю ширину экрана */
+        padding: 5px 8px; /* Минимизируем отступы */
+    }
+
+    nav.menu ul {
+        gap: 2px; /* Уменьшаем расстояние между пунктами меню */
+    }
+
+    nav.menu ul li a {
+        font-size: 9px; /* Уменьшаем размер шрифта для компактности */
+        padding: 3px 6px; /* Минимальные отступы внутри ссылок */
+        border-radius: 50px; /* Оставляем скругленные края */
+    }
+}
+
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Основное изображение */
@@ -358,7 +376,6 @@ nav.menu ul li a.selected {
     margin: 60px auto 0; /* Увеличиваем отступ сверху для всех экранов */
 }
 
-
 .card {
     position: relative;
     background: linear-gradient(145deg, #e9d5f7, #f7eefc);
@@ -374,7 +391,7 @@ nav.menu ul li a.selected {
 
 .card:hover {
     transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(153, 102, 204, 0.3);
+    box-shadow: 0 25px 50px #9966cc4d;
 }
 
 .card::before {
@@ -406,38 +423,126 @@ nav.menu ul li a.selected {
     color: #4b2e56;
 }
 
-/* Адаптивный дизайн для маленьких экранов */
-@media (max-width: 768px) {
+/* Адаптивный дизайн */
+@media (max-width: 1200px) {
     .card {
-        width: 90%; /* Карточка будет занимать 90% ширины экрана на маленьких устройствах */
-        margin-bottom: 20px;
+        width: 220px; /* Уменьшаем ширину карточек */
+        padding: 35px 25px; /* Уменьшаем внутренние отступы */
+    }
+    .title {
+        font-size: 1.4em; /* Уменьшаем размер заголовка */
+    }
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста */
     }
 }
 
+@media (max-width: 992px) {
+    .card {
+        width: 200px; /* Ещё меньше ширина */
+        padding: 30px 20px;
+    }
+    .title {
+        font-size: 1.2em;
+    }
+    .description {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 180px;
+        padding: 25px 15px;
+    }
+    .title {
+        font-size: 1.1em;
+    }
+    .description {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 150px;
+        padding: 20px 10px;
+    }
+    .title {
+        font-size: 1em;
+    }
+    .description {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 240px) {
+    .container {
+        gap: 15px; /* Уменьшаем расстояние между карточками */
+    }
+
+    .card {
+        width: 95%; /* Карточка будет занимать почти всю ширину экрана */
+        padding: 20px 15px; /* Уменьшаем внутренние отступы */
+        border-radius: 15px; /* Уменьшаем радиус скругления */
+    }
+
+    .card::before {
+        width: 150px;
+        height: 150px;
+        top: -40px;
+        left: -40px; /* Уменьшаем размеры декоративного круга */
+    }
+
+    .title {
+        font-size: 1.2em; /* Уменьшаем размер заголовка */
+    }
+
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста описания */
+    }
+}
+
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* --- Основной стиль --- */
+
 /* Контейнер для фотографий */
 .group-images {
     display: flex;
-    gap: 70px; /* Увеличиваем расстояние между карточками */
-    justify-content: center;
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: space-evenly;
+    align-items: center;
     padding-top: 50px;
+    flex-wrap: nowrap; /* Отключаем перенос */
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px; /* Отступ слева */
+    padding-right: 20px; /* Отступ справа */
+    overflow-x: auto; /* Горизонтальная прокрутка при необходимости */
 }
 
-/* Оформление каждой карточки */
+/* Карточка */
 .group-card {
     position: relative;
-    width: 400px; /* Увеличиваем ширину карточки */
-    height: auto; /* Задаем высоту для более крупного вида */
+    flex: 1 1 auto;
+    max-width: 300px; /* Максимальная ширина */
+    min-width: 150px; /* Минимальная ширина */
+    height: auto;
+    aspect-ratio: 3 / 4; /* Сохраняем пропорции */
     overflow: hidden;
     border-radius: 15px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* Эффекты увеличения и затемнения при наведении */
+/* Изображение */
 .group-card img {
+    display: block;
     width: 100%;
-    height: 100%; /* Заполняет всю карточку */
+    height: auto;
+    object-fit: cover;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -446,21 +551,269 @@ nav.menu ul li a.selected {
     filter: brightness(0.7);
 }
 
-/* Текст с названием группы */
-.group-text {
+/* Верхний текст */
+.group-top-text {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
-    font-size: 24px; /* Увеличиваем шрифт для лучшей читаемости */
+    font-size: calc(1.2vw + 0.8vh);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Нижний текст (контейнер) */
+.group-bottom-container {
+    position: absolute;
+    bottom: 4%; /* Поднимаем текст выше */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    white-space: normal; /* Включаем перенос строк */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Возраст */
+.group-bottom-text {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: calc(1vw + 0.6vh);
+    margin-bottom: 5px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
+/* Подсказка */
+.group-description {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: calc(0.9vw + 0.5vh);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 0 10px;
+    margin-top: 5px;
+    white-space: normal; /* Включаем перенос строк для подсказки */
+    word-wrap: break-word; /* Разрываем длинные слова */
+}
+
 /* Появление текста при наведении */
-.group-card:hover .group-text {
+.group-card:hover .group-top-text,
+.group-card:hover .group-bottom-text,
+.group-card:hover .group-description {
     opacity: 1;
 }
+
+/* --- Адаптивные стили --- */
+
+/* Для экранов до 1200px */
+@media (max-width: 1200px) {
+    .group-card {
+        max-width: 250px;
+    }
+    .group-top-text {
+        font-size: calc(1.4vw + 0.7vh);
+    }
+    .group-bottom-text {
+        font-size: calc(1.2vw + 0.6vh);
+    }
+    .group-description {
+        font-size: calc(1vw + 0.5vh);
+    }
+}
+
+/* Для экранов до 992px */
+@media (max-width: 992px) {
+    .group-card {
+        max-width: 200px;
+    }
+    .group-top-text {
+        font-size: calc(1.8vw + 0.6vh);
+    }
+    .group-bottom-container {
+        bottom: 10%; /* Поднимаем текст выше */
+    }
+    .group-bottom-text {
+        font-size: calc(1.5vw + 0.5vh);
+    }
+    .group-description {
+        font-size: calc(1.3vw + 0.4vh);
+    }
+}
+
+/* Для экранов до 480px */
+@media (max-width: 480px) {
+    .group-card {
+        max-width: 150px;
+    }
+    .group-top-text {
+        font-size: calc(2vw + 0.6vh);
+    }
+    .group-bottom-container {
+        bottom: 12%; /* Поднимаем текст выше */
+    }
+    .group-bottom-text {
+        font-size: calc(1.8vw + 0.5vh);
+    }
+    .group-description {
+        font-size: calc(1.5vw + 0.4vh);
+    }
+}
+
+/* Для экранов до 240px */
+@media (max-width: 240px) {
+    .group-card {
+        max-width: 100px; /* Минимальный размер карточек */
+    }
+    .group-top-text {
+        font-size: 14px; /* Маленький шрифт для названия группы */
+    }
+    .group-bottom-container {
+        bottom: 15%; /* Поднимаем текст выше */
+    }
+    .group-bottom-text {
+        font-size: 12px;
+    }
+    .group-description {
+        font-size: 10px;
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Стиль футера */
+.site-footer {
+    background-color: #1c1c1c; /* Темный фон */
+    color: #fff;
+    padding: 15px 20px; /* Уменьшаем отступы */
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для футера */
+}
+
+/* Контейнер для контента футера */
+.footer-content {
+    max-width: 1000px; /* Уменьшаем максимальную ширину */
+    margin: 0 auto;
+}
+
+/* Текст в футере */
+.footer-content p {
+    margin: 0;
+    font-size: 12px; /* Уменьшаем размер текста */
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Ссылки футера */
+.footer-links {
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Уменьшаем расстояние между ссылками */
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px; /* Уменьшаем размер текста ссылок */
+    font-weight: 500;
+    position: relative;
+}
+
+/* Эффект при наведении на ссылки */
+.footer-links a:hover {
+    color: #ba91e293; /* Цвет ссылки при наведении */
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ba91e293;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.footer-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Секция социальных иконок */
+.footer-social {
+    margin-top: 15px; /* Уменьшаем отступ сверху */
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Увеличиваем расстояние между иконками */
+    flex-wrap: nowrap; /* Иконки остаются на одной строке */
+}
+
+/* Иконки социальных сетей */
+.social-icon {
+    width: 28px; /* Уменьшаем размер иконок */
+    height: 28px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    opacity: 1;
+}
+
+/* Пространство перед футером */
+.spacer {
+    height: 60px; /* Расстояние по умолчанию для десктопов */
+}
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+    .spacer {
+        height: 70px; /* Уменьшаем пространство для планшетов */
+    }
+
+    .footer-social {
+        gap: 20px; /* Увеличиваем расстояние между иконками для планшетов */
+    }
+
+    .social-icon {
+        width: 24px; /* Уменьшаем размер иконок для планшетов */
+        height: 24px;
+    }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .spacer {
+        height: 50px; /* Еще меньше для мобильных устройств */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Расположение ссылок в колонку */
+    }
+
+    .footer-social {
+        justify-content: center; /* Иконки центрируются по ширине */
+        gap: 12px; /* Увеличиваем расстояние между иконками для мобильных устройств */
+    }
+
+    .social-icon {
+        width: 20px; /* Еще меньше для мобильных устройств */
+        height: 20px;
+    }
+}
+
