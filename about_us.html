@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватели коллектива</title>
+    <link rel="stylesheet" href="css/about_us.css">
+    <link rel="stylesheet" href="css/header_with_menu.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/icons/Logo.svg" alt="Candy Drop Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li><a href="about_us.html" class="selected">О нас</a></li>
+                <li><a href="achievements.html">Достижения</a></li>
+                <li><a href="record.html">Запись</a></li>
+            </ul>
+        </nav>
+        <div class="auth-icon">
+            <a href="authorization.html">
+                <img src="assets/icons/User.svg" alt="Login Icon">
+            </a>
+        </div>
+    </header>
+    <div class="slider-thumb"></div>
+    <main>
+        <section class="teachers">
+            <div class="teacher">
+                <div class="teacher-photo">
+                    <img src="assets/images/TUV.png" alt="Teacher 1">
+                </div>
+                <div class="teacher-info">
+                    <h2>Татаринова Юлия Валентиновна</h2>
+                    <p>Главный хореограф</p>
+                </div>
+            </div>
+            <div class="teacher">
+                <div class="teacher-photo">
+                    <img src="assets/images/GUI.png" alt="Teacher 2">
+                </div>
+                <div class="teacher-info">
+                    <h2>Гусаченко Юлия Игоревна</h2>
+                    <p>Хореограф старшей группы</p>
+                </div>
+            </div>
+            <!-- Добавьте больше преподавателей по необходимости -->
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> Все права защищены. Хореографический коллектив "CANDY DROP".</p>
+            <div class="footer-links">
+                <a href="/privacy-policy">Политика конфиденциальности</a>
+                <a href="/terms-of-service">Условия использования</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://t.me/+0C7HjmbkXK05MTYy" target="_blank">
+                    <img src="assets/icons/telegram_icon.svg" alt="Telegram" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/candy_drop_tgn?igsh=MWdrZXExNXVkMWRhNQ==" target="_blank">
+                    <img src="assets/icons/instagram_icon.svg" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

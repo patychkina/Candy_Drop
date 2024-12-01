@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candy Drop</title>
     <link rel="stylesheet" href="css/main_page.css">
+    <link rel="stylesheet" href="css/header_with_menu.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
     <header>
@@ -13,14 +15,16 @@
         </div>
         <nav class="menu">
             <ul>
-                <li><a href="#" class="selected">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Достижения</a></li>
-                <li><a href="#">Запись</a></li>
+                <li><a href="main.html" class="selected">Главная</a></li>
+                <li><a href="about_us.html">О нас</a></li>
+                <li><a href="achievements.html">Достижения</a></li>
+                <li><a href="record.html">Запись</a></li>
             </ul>            
         </nav>
         <div class="auth-icon">
-            <img src="assets/icons/User.svg" alt="Login Icon">
+            <a href="authorization.html">
+                <img src="assets/icons/User.svg" alt="Login Icon">
+            </a>
         </div>
     </header>
 
@@ -67,32 +71,6 @@
         <div class="title">Современная хореография</div>
         <div class="description">Новейшие движения и стили. Развитие креативности и самовыражения.</div>
     </div>
-    <div class="group-images">
-        <div class="group-card">
-            <img src="assets/images/junior group.svg" alt="Junior Group">
-            <div class="group-top-text">Младшая группа</div>
-            <div class="group-bottom-container">
-                <div class="group-bottom-text">Для детей от 3 до 6 лет</div>
-                <div class="group-description">Занятия для самых маленьких, начинаем знакомство с танцем!</div>
-            </div>
-        </div>
-        <div class="group-card">
-            <img src="assets/images/middle group.svg" alt="Middle Group">
-            <div class="group-top-text">Средняя группа</div>
-            <div class="group-bottom-container">
-                <div class="group-bottom-text">Для детей от 6 до 9 лет</div>
-                <div class="group-description">Развиваем технику и артистизм, готовимся к большим достижениям!</div>
-            </div>
-        </div>
-        <div class="group-card">
-            <img src="assets/images/senior group.svg" alt="Senior Group">
-            <div class="group-top-text">Старшая группа</div>
-            <div class="group-bottom-container">
-                <div class="group-bottom-text">Для детей от 9 до 15 лет</div>
-                <div class="group-description">Подготовка к выступлениям и соревнованиям, совершенствуем мастерство!</div>
-            </div>
-        </div>
-    </div>
     
 
     </main>
@@ -121,7 +99,9 @@
             </div>
         </div>
     </footer>
-    
-    
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script> 
 </body>
 </html>

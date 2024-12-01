@@ -1,0 +1,172 @@
+/* Хедер с логотипом, меню и иконкой */
+header {
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение: логотип, меню и иконка */
+    align-items: center;
+    padding: 20px 40px;
+}
+
+/* Логотип */
+header .logo img {
+    width: 110px;
+    height: auto;
+    transition: width 0.3s ease;
+}
+
+/* Меню */
+header nav.menu {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Меню занимает оставшееся пространство */
+}
+
+header nav.menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around; /* Равномерное распределение пунктов меню */
+    width: 70%; /* Ограничение ширины меню */
+}
+
+header nav.menu ul li a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5vw;
+    font-weight: 400;
+    color: #656363;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Эффект при наведении */
+header nav.menu ul li a:hover {
+    background-color: #71448056;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Стиль для выбранного пункта меню */
+header nav.menu ul li a.selected {
+    background-color: #71448085;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Иконка авторизации */
+header .auth-icon img {
+    height: 40px;
+    transition: height 0.3s ease;
+}
+
+/* Адаптивные стили */
+
+/* Для экранов с шириной менее 1200px */
+@media (max-width: 1200px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    header .logo img {
+        width: 90px;
+    }
+
+    header nav.menu ul {
+        width: 70%; /* Уменьшаем ширину меню */
+    }
+
+    header nav.menu ul li a {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+
+    header .auth-icon img {
+        height: 35px;
+    }
+}
+
+/* Для экранов с шириной менее 992px */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    header nav.menu ul {
+        width: 60%;
+    }
+
+    header nav.menu ul li a {
+        font-size: 14px;
+        padding: 7px 15px;
+    }
+
+    header .logo img {
+        width: 80px;
+    }
+
+    header .auth-icon img {
+        height: 30px;
+    }
+}
+
+/* Для экранов с шириной менее 768px */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    header nav.menu ul {
+        width: 50%;
+    }
+
+    header nav.menu ul li a {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    header .logo img {
+        width: 70px;
+    }
+
+    header .auth-icon img {
+        height: 25px;
+    }
+}
+
+/* Для экранов с шириной менее 480px */
+@media (max-width: 480px) {
+   
+    header nav.menu ul {
+        width: 100%; /* Меню занимает всю ширину */
+        justify-content: space-evenly; /* Распределение пунктов */
+    }
+
+    header nav.menu ul li a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    header .logo img {
+        width: 60px;
+    }
+
+    header .auth-icon img {
+        height: 20px;
+    }
+}
+
+/* Для экранов с шириной менее 240px */
+@media (max-width: 240px) {
+    header nav.menu ul {
+        gap: 2px;
+    }
+
+    header nav.menu ul li a {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+}
+
