@@ -1,469 +1,113 @@
 /* Основные стили для всей страницы */
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg,#d6bcf8,#f1f1f1f1);
+    overflow-x: hidden; /* Убираем горизонтальный ползунок */
+}
+
+/* Стили для секции с преподавателями */
+.teachers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px; /* Увеличиваем расстояние между карточками */
+}
+
+.teacher {
+    display: flex;
+    gap: 10vw;
+    width: 100%;
+    max-width: 80%; /* Увеличиваем максимальную ширину */
+    transition: transform 0.3s ease;
+    flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+.teacher:hover {
+    transform: scale(1.05);
+}
+
+.teacher-photo {
+    position: relative; 
+    flex: 2; /* Увеличиваем пропорцию фото */
+    padding: 1vw; /* Увеличиваем отступы */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-
-/* Хедер с логотипом и иконкой */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    margin-bottom: 0;
-}
-
-/* Логотип */
-header .logo img {
-    width: 110px;
-    height: auto;
-    transition: width 0.3s ease; /* Плавное изменение размера логотипа */
-}
-
-/* Иконка авторизации */
-header .auth-icon img {
-    height: 40px;
-    transition: height 0.3s ease; /* Плавное изменение размера иконки */
-}
-
-/* Адаптивный дизайн для разных экранов */
-
-/* Для экранов с шириной менее 1200px (например, планшеты и большие экраны ноутбуков) */
-@media (max-width: 1200px) {
-    header {
-        padding: 20px 30px;
-    }
-    header .logo img {
-        width: 90px;
-    }
-    header .auth-icon img {
-        height: 35px;
-    }
-}
-
-/* Для экранов с шириной менее 768px (планшеты и мобильные устройства) */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    header .logo img {
-        width: 80px; /* Уменьшаем логотип */
-    }
-
-    header .auth-icon img {
-        height: 30px; /* Уменьшаем иконку */
-    }
-}
-
-/* Для экранов с шириной менее 480px (мобильные устройства) */
-@media (max-width: 480px) {
-    header {
-        padding: 10px 15px;
-    }
-
-    header .logo img {
-        width: 70px; /* Еще меньше логотип */
-    }
-
-    header .auth-icon img {
-        height: 25px; /* Еще меньше иконка */
-    }
-}
-
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*Меню*/
-/* Основные стили для меню */
-nav.menu {
+.teacher-photo::before {
+    content: "";
     position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%); /* Центрируем меню */
-    background-color: #f8f5f5; /* Светлый фон для меню */
-    padding: 5px 40px;  /* Уменьшаем высоту меню */
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для меню */
-    display: flex;
-    justify-content: space-evenly; /* Равномерное распределение пунктов */
-    width: 60%;  /* Меню теперь будет занимать 60% от ширины экрана */
-    margin-bottom: 0; /* Убираем отступ снизу у меню */
+    left: 0%;
+    top: 0%;
+    width: 100%; /* Используем проценты для адаптации */
+    height: 100%; /* Используем проценты для адаптации */
+    background: #71448056;
+    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+    will-change: border-radius, transform, opacity;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    -webkit-animation: sliderShape 5s linear infinite;
 }
 
-/* Список элементов меню */
-nav.menu ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Меню будет занимать всю доступную ширину */
-    justify-content: space-evenly; /* Равномерное распределение элементов */
-}
-
-/* Элементы меню */
-nav.menu ul li {
-    display: inline;
-}
-
-nav.menu ul li a {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #656363;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 100px;
-    transition: all 0.3s ease; /* Плавные переходы для всех свойств */
-    display: inline-block;
-    text-align: center; /* Центрируем текст внутри ссылок */
-}
-
-/* Эффект при наведении */
-nav.menu ul li a:hover {
-    background-color: #71448056;  /* Легкий розовый оттенок при наведении */
-    color: #fff;  /* Белый цвет текста при наведении */
-    transform: scale(1.1); /* Увеличение элемента */
-}
-
-/* Стиль для выбранного пункта */
-nav.menu ul li a.selected {
-    background-color: #71448085; /* Яркий фиолетовый цвет для выбранного пункта */
-    color: #fff;
-    transform: scale(1.1); /* Увеличение выбранного элемента */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для выделенного пункта */
-}
-
-/* Адаптивные стили */
-
-/* Для экранов с шириной менее 1200px */
-@media (max-width: 1200px) {
-    nav.menu {
-        width: 70%; /* Уменьшаем ширину меню */
-        padding: 5px 30px; /* Уменьшаем отступы */
-    }
-
-    nav.menu ul li a {
-        font-size: 18px; /* Уменьшаем размер шрифта */
-        padding: 8px 20px; /* Уменьшаем отступы для ссылок */
-    }
-}
-
-/* Для экранов с шириной менее 992px */
-@media (max-width: 992px) {
-    nav.menu {
-        width: 60%; /* Меню теперь будет занимать 60% ширины экрана */
-        padding: 5px 25px; /* Уменьшаем отступы */
-    }
-
-    nav.menu ul li a {
-        font-size: 16px; /* Уменьшаем размер шрифта */
-        padding: 7px 15px; /* Уменьшаем отступы для ссылок */
-    }
-}
-
-/* Для экранов с шириной менее 768px */
-@media (max-width: 768px) {
-    nav.menu {
-        width: 50%; /* Меню теперь будет занимать 50% ширины экрана */
-        padding: 5px 20px; /* Уменьшаем отступы */
-    }
-
-    nav.menu ul li a {
-        font-size: 14px; /* Уменьшаем размер шрифта */
-        padding: 6px 12px; /* Уменьшаем отступы для ссылок */
-    }
-}
-
-/* Для экранов с шириной менее 480px */
-@media (max-width: 480px) {
-    nav.menu {
-        width: 100%; /* Меню теперь будет занимать всю ширину экрана */
-        padding: 5px 15px; /* Уменьшаем отступы */
-    }
-
-    nav.menu ul li a {
-        font-size: 12px; /* Еще больше уменьшаем размер шрифта */
-        padding: 5px 10px; /* Уменьшаем отступы */
-    }
-}
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Основное изображение */
-/* Основное изображение */
-.main-image {
-    position: relative;
-    width: 80%; /* Ширина для адаптации, меньше чем 90% */
-    max-width: 1300px;
+.teacher-photo img {
+    width: 100%;
     height: auto;
-    background-size: cover;
-    border-radius: 15px;
-    margin: 0 auto;
-    margin-left: 10%; /* Меньше расстояние слева */
+    position: relative; /* Убедимся, что изображение находится поверх псевдоэлемента */
     z-index: 1;
 }
 
-.main-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
+.teacher-info {
+    margin-top: 14vw;
+    flex: 1; /* Уменьшаем пропорцию текста */
+    padding: 2vw; /* Увеличиваем отступы */
+    text-align: center; 
+}
+
+.teacher-info h2 {
+    margin: 0 0 1vw; /* Увеличиваем отступ снизу */
+    font-size: 2vw; /* Увеличиваем размер текста */
+    color: #333;
+    white-space: nowrap;
+}
+
+.teacher-info p {
     margin: 0;
+    font-size: 1.5vw; /* Увеличиваем размер текста */
+    color: #656363;
 }
 
-/* Текстовое изображение поверх основного изображения */
-.text-image {
-    position: absolute;
-    bottom: 5%; /* Опускаем текстовое изображение ниже */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%; /* Пропорциональная ширина для адаптации */
-    max-width: 700px;
-    z-index: 2;
+
+/* Чередование расположения фото и текста для четных преподавателей */
+.teacher:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
-/* Картинка с текстом */
-.text-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
-    margin: 0;
-}
-
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    .main-image {
-        width: 90%; /* Увеличиваем ширину на маленьких экранах */
-        margin-left: 5%; /* Меньше расстояние слева */
-    }
-
-    .text-image {
-        width: 60%; /* Уменьшаем ширину текстового изображения пропорционально */
-        bottom: 10%; /* Корректируем позицию немного ниже */
-    }
-}
-
-@media (max-width: 480px) {
-    .main-image {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .text-image {
-        width: 50%; /* Уменьшаем еще больше для мобильных устройств */
-        bottom: 5%; /* Еще ниже текстовое изображение */
-    }
-}
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Стили для приветственного сообщения */
-/* Стили для приветственного сообщения */
-.welcome-message {
-    position: absolute;
-    width: 100%; /* Расширяем на 100% ширины экрана */
-    max-width: 1557px; /* Максимальная ширина */
-    height: 93px;
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
-    top: 745px;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 41px;
+.teacher:nth-child(even) .teacher-info {
     text-align: center;
-    color: #714480f6;
-    z-index: 3; /* Повыше, чтобы сообщение отображалось поверх других элементов */
 }
 
-/* Стили для описания */
-.description-message {
-    position: absolute;
-    top: 885px; /* Расположение от верхнего края */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Смещаем элемент на 50% влево и вверх от его размера */
-    width: 100%; /* Расширяем на 100% ширины экрана */
-    max-width: 1374px; /* Максимальная ширина */
-    height: auto; /* Высота будет зависеть от контента */
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 40px;
-    text-align: center; /* Центрируем текст */
-    letter-spacing: -1px; /* Уменьшаем межбуквенный интервал */
-    color: #656363; /* Цвет текста */
-    z-index: 2; /* Устанавливаем порядок отображения */
-}
-
-/* Адаптивные стили */
-
-/* Для экранов меньше 1200px */
-@media (max-width: 1200px) {
-    .welcome-message {
-        font-size: 28px; /* Уменьшаем размер шрифта */
-        line-height: 34px;
-        top: 680px; /* Снижаем расстояние от картинки */
+/* Анимация для псевдоэлемента */
+@keyframes sliderShape {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-
-    .description-message {
-        font-size: 26px; /* Уменьшаем размер шрифта */
-        line-height: 32px;
-        top: 815px; /* Снижаем расстояние от картинки */
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
     }
-}
-
-/* Для экранов меньше 768px */
-@media (max-width: 768px) {
-    .welcome-message {
-        font-size: 24px; /* Уменьшаем размер шрифта */
-        line-height: 28px;
-        top: 640px; /* Снижаем расстояние от картинки */
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-
-    .description-message {
-        font-size: 22px; /* Уменьшаем размер шрифта */
-        line-height: 26px;
-        top: 760px; /* Снижаем расстояние от картинки */
-        width: 90%; /* Ширина 90% от экрана */
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
     }
-}
-
-/* Для экранов меньше 480px */
-@media (max-width: 480px) {
-    .welcome-message {
-        font-size: 20px; /* Еще меньше для мобильных */
-        line-height: 24px;
-        top: 600px; /* Снижаем расстояние от картинки */
-    }
-
-    .description-message {
-        font-size: 18px; /* Еще меньше для мобильных */
-        line-height: 22px;
-        top: 720px; /* Снижаем расстояние от картинки */
-        width: 90%; /* Ширина 90% от экрана */
-    }
-}
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Карточки */
-.container {
-    max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center; /* Центрируем карточки по горизонтали */
-    margin: 0 auto; /* Центрируем контейнер на странице */
-    padding-top: 950px;
-}
-
-.card {
-    position: relative;
-    background: linear-gradient(145deg, #e9d5f7, #f7eefc);
-    border-radius: 25px;
-    padding: 40px 30px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(153, 102, 204, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(153, 102, 204, 0.3);
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: transform 0.6s ease;
-}
-
-.card:hover::before {
-    transform: scale(1.5);
-}
-
-.title {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #6c3b8e;
-    margin-bottom: 15px;
-}
-
-.description {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #4b2e56;
-}
-
-/* Адаптивный дизайн для маленьких экранов */
-@media (max-width: 768px) {
-    .card {
-        width: 90%; /* Карточка будет занимать 90% ширины экрана на маленьких устройствах */
-        margin-bottom: 20px;
-    }
-}
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Контейнер для фотографий */
-.group-images {
-    display: flex;
-    gap: 70px; /* Увеличиваем расстояние между карточками */
-    justify-content: center;
-    padding-top: 50px;
-}
-
-/* Оформление каждой карточки */
-.group-card {
-    position: relative;
-    width: 400px; /* Увеличиваем ширину карточки */
-    height: auto; /* Задаем высоту для более крупного вида */
-    overflow: hidden;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-/* Эффекты увеличения и затемнения при наведении */
-.group-card img {
-    width: 100%;
-    height: 100%; /* Заполняет всю карточку */
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.group-card:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.7);
-}
-
-/* Текст с названием группы */
-.group-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    font-size: 24px; /* Увеличиваем шрифт для лучшей читаемости */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Появление текста при наведении */
-.group-card:hover .group-text {
-    opacity: 1;
 }

@@ -5,7 +5,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg,#d6bcf8,#f1f1f1f1);
+    background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
     overflow-x: hidden; /* Убираем горизонтальный ползунок */
 }
 
@@ -14,18 +14,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Увеличиваем расстояние между карточками */
+    gap: 0px; /* Увеличиваем расстояние между карточками */
 }
 
 .teacher {
     display: flex;
     gap: 10vw;
     width: 100%;
-    max-width: 1000px; /* Увеличиваем максимальную ширину */
+    max-width: 80%; /* Увеличиваем максимальную ширину */
     transition: transform 0.3s ease;
-    padding: 40px; /* Добавляем отступы для увеличения расстояния между фото и текстом */
     flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
-    margin-left: -300px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .teacher:hover {
@@ -33,24 +33,53 @@ body {
 }
 
 .teacher-photo {
+    position: relative;
     flex: 2; /* Увеличиваем пропорцию фото */
-    padding: 20px; /* Увеличиваем отступы */
+    padding: 1vw; /* Увеличиваем отступы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-photo::before {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%; /* Используем проценты для адаптации */
+    height: 100%; /* Используем проценты для адаптации */
+    background: #71448056;
+    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+    will-change: border-radius, transform, opacity;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    -webkit-animation: sliderShape 5s linear infinite;
+    transition: background 0.3s ease, border-radius 0.3s ease, transform 0.3s ease;
+}
+
+.teacher:hover .teacher-photo::before {
+    background: #5f207479; /* Изменяем цвет фона при наведении */
+    border-radius: 50%; /* Изменяем форму при наведении */
+    transform: scale(1.1); /* Увеличиваем размер при наведении */
 }
 
 .teacher-photo img {
-    width: 30vw;
+    width: 100%;
     height: auto;
+    position: relative; /* Убедимся, что изображение находится поверх псевдоэлемента */
+    z-index: 1;
 }
 
 .teacher-info {
     margin-top: 14vw;
     flex: 1; /* Уменьшаем пропорцию текста */
-    padding: 20px; /* Увеличиваем отступы */
-    text-align: center; 
+    padding: 2vw; /* Увеличиваем отступы */
+    text-align: center;
 }
 
 .teacher-info h2 {
-    margin: 0 0 10px; /* Увеличиваем отступ снизу */
+    margin: 0 0 1vw; /* Увеличиваем отступ снизу */
     font-size: 2vw; /* Увеличиваем размер текста */
     color: #333;
     white-space: nowrap;
@@ -59,122 +88,33 @@ body {
 .teacher-info p {
     margin: 0;
     font-size: 1.5vw; /* Увеличиваем размер текста */
-    color: #666;
+    color: #656363;
 }
 
-/* Адаптивные стили */
-
-/* Для экранов с шириной менее 1200px */
-@media (max-width: 1200px) {
-    .teacher {
-        padding: 15px; /* Уменьшаем отступы */
-    }
-
-    .teacher-photo {
-        padding: 15px; /* Уменьшаем отступы */
-    }
-
-    .teacher-info {
-        padding: 15px; /* Уменьшаем отступы */
-    }
-    .teacher-photo img {
-        width: 30vw;
-        height: auto;
-        margin-left: 50%;
-    }
+/* Чередование расположения фото и текста для четных преподавателей */
+.teacher:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
-/* Для экранов с шириной менее 992px */
-@media (max-width: 992px) {
-    .teacher {
-        padding: 10px; /* Уменьшаем отступы */
-    }
-
-    .teacher-photo {
-        padding: 10px; /* Уменьшаем отступы */
-    }
-
-    .teacher-info {
-        padding: 10px; /* Уменьшаем отступы */
-    }
-
-    .teacher-photo img {
-        width: 30vw;
-        height: auto;
-        margin-left: 50%;
-    }
+.teacher:nth-child(even) .teacher-info {
+    text-align: center;
 }
 
-/* Для экранов с шириной менее 768px */
-@media (max-width: 768px) {
-    .teacher {
-        padding: 5px; /* Уменьшаем отступы */
+/* Анимация для псевдоэлемента */
+@keyframes sliderShape {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-
-    .teacher-photo {
-        padding: 5px; /* Уменьшаем отступы */
-    }
-
-    .teacher-info {
-        padding: 5px; /* Уменьшаем отступы */
-    }
-    .teacher-photo img {
-        width: 30vw;
-        height: auto;
-        margin-left: 50%;
-    }
-}
-
-/* Для экранов с шириной менее 480px */
-@media (max-width: 480px) {
-    .teacher {
-        padding: 2px; /* Уменьшаем отступы */
-    }
-
-    .teacher-photo {
-        padding: 2px; /* Уменьшаем отступы */
-    }
-
-    .teacher-info {
-        padding: 2px; /* Уменьшаем отступы */
-    }
-}
-
-body {
-    height: 100%;
-     background: linear-gradient(0deg,#d6bcf8,#f1f1f1f1);
-     font-family: Arial, sans-serif;
-  }
-  
-  .slider-thumb::before {
-    position: absolute;
-    content: "";
-    left: 10%;
-    top: 20%;
-    width: 500px;
-    height: 450px;
-    background: #71448056;
-    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-    will-change: border-radius, transform, opacity;
-    animation: sliderShape 5s linear infinite;
-    display: block;
-    z-index: -1;
-    -webkit-animation: sliderShape 5s linear infinite;
-  }
-  @keyframes sliderShape{
-    0%,100%{
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-      transform: translate3d(0,0,0) rotateZ(0.01deg);
-    }
-    34%{
+    34% {
         border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-      transform:  translate3d(0,5px,0) rotateZ(0.01deg);
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
     }
-    50%{
-      transform: translate3d(0,0,0) rotateZ(0.01deg);
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-    67%{
-      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
-      transform: translate3d(0,-3px,0) rotateZ(0.01deg);
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
     }
-  }
+}
