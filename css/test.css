@@ -9,105 +9,300 @@ body {
     overflow-x: hidden; /* Убираем горизонтальный ползунок */
 }
 
-/* Стили для секции с преподавателями */
-.teachers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px; /* Увеличиваем расстояние между карточками */
-}
-
-.teacher {
-    display: flex;
-    gap: 10vw;
-    width: 100%;
-    max-width: 80%; /* Увеличиваем максимальную ширину */
-    transition: transform 0.3s ease;
-    flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
-    justify-content: center;
-    align-items: flex-start; 
-}
-
-.teacher:hover {
-    transform: scale(1.05);
-}
-
-.teacher-photo {
-    position: relative; 
-    flex: 2; /* Увеличиваем пропорцию фото */
-    padding: 1vw; /* Увеличиваем отступы */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.teacher-photo::before {
-    content: "";
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 100%; /* Используем проценты для адаптации */
-    height: 100%; /* Используем проценты для адаптации */
-    background: #71448056;
-    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-    will-change: border-radius, transform, opacity;
-    animation: sliderShape 5s linear infinite;
-    display: block;
-    z-index: -1;
-    -webkit-animation: sliderShape 5s linear infinite;
-}
-
-.teacher-photo img {
-    width: 100%;
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Основное изображение */
+.main-image {
+    position:  relative;
+    width: 80%;
+    max-width: 2000px;
     height: auto;
-    position: relative; /* Убедимся, что изображение находится поверх псевдоэлемента */
+    background-size: cover;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-right: 10%;
+    margin-left: 10%;
     z-index: 1;
 }
 
-.teacher-info {
-    margin-top: 14vw;
-    flex: 1; /* Уменьшаем пропорцию текста */
-    padding: 2vw; /* Увеличиваем отступы */
-    text-align: center; 
-}
-
-.teacher-info h2 {
-    margin: 0 0 1vw; /* Увеличиваем отступ снизу */
-    font-size: 2vw; /* Увеличиваем размер текста */
-    color: #333;
-    white-space: nowrap;
-}
-
-.teacher-info p {
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
     margin: 0;
-    font-size: 1.5vw; /* Увеличиваем размер текста */
-    color: #656363;
+}
+
+/* Текстовое изображение поверх основного изображения */
+.text-image {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 700px;
+    z-index: 2;
+}
+
+.text-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0;
 }
 
 
-/* Чередование расположения фото и текста для четных преподавателей */
-.teacher:nth-child(even) {
-    flex-direction: row-reverse;
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .main-image {
+        width: 90%; /* Увеличиваем ширину на маленьких экранах */
+        margin-left: 5%; /* Меньше расстояние слева */
+    }
+
+    .text-image {
+        width: 70%; /* Уменьшаем ширину текстового изображения пропорционально */
+        bottom: 5%; /* Корректируем позицию немного ниже */
+    }
 }
 
-.teacher:nth-child(even) .teacher-info {
+@media (max-width: 480px) {
+    .main-image {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .text-image {
+        width: 60%; /* Уменьшаем еще больше для мобильных устройств */
+        bottom: 5%; /* Еще ниже текстовое изображение */
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Стили для приветственного сообщения */
+.welcome-message {
+    position: relative;
+    width: 100%;
+    max-width: 1557px;
+    height: 93px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    padding-left: 10%; /* Адаптивный отступ слева */
+    padding-right: 10%; /* Адаптивный отступ справа */
     text-align: center;
+    color: #714480f6;
+    z-index: 3;
+    top: 3vh;
 }
 
-/* Анимация для псевдоэлемента */
-@keyframes sliderShape {
-    0%, 100% {
-        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+/* Стили для описания */
+.description-message {
+    position: relative;
+    top: 3vh; /* Меньший отступ между welcome-message и description-message */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1374px;
+    height: auto;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    padding-left: 10%; /* Адаптивный отступ слева */
+    padding-right: 10%; /* Адаптивный отступ справа */
+    text-align: center;
+    letter-spacing: -1px;
+    color: #656363;
+    z-index: 2;
+}
+
+/* Адаптивные стили */
+
+/* Для экранов меньше 1200px */
+@media (max-width: 1200px) {
+    .welcome-message {
+        font-size: 28px;
+        line-height: 34px;
+        top: 4vh; /* Уменьшенное расстояние */
     }
-    34% {
-        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-    }
-    50% {
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-    }
-    67% {
-        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+
+    .description-message {
+        font-size: 26px;
+        line-height: 32px;
+        top: 3vh; /* Меньший отступ */
     }
 }
+
+/* Для экранов меньше 768px */
+@media (max-width: 768px) {
+    .welcome-message {
+        font-size: 24px;
+        line-height: 28px;
+        top: 3vh; /* Еще меньшее расстояние */
+    }
+
+    .description-message {
+        font-size: 22px;
+        line-height: 26px;
+        top: 1vh; /* Меньший отступ */
+        width: 90%;
+    }
+}
+
+/* Для экранов меньше 480px */
+@media (max-width: 480px) {
+    .welcome-message {
+        font-size: 20px;
+        line-height: 24px;
+        top: 2vh; /* Минимальное расстояние */
+    }
+
+    .description-message {
+        font-size: 18px;
+        line-height: 22px;
+        top: 1vh; /* Минимальный отступ */
+        width: 90%;
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Карточки */
+.container {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; /* Центрируем карточки по горизонтали */
+    margin: 60px auto 0; /* Увеличиваем отступ сверху для всех экранов */
+}
+
+.card {
+    position: relative;
+    background: linear-gradient(145deg, #e9d5f7, #f7eefc);
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(153, 102, 204, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px #9966cc4d;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: transform 0.6s ease;
+}
+
+.card:hover::before {
+    transform: scale(1.5);
+}
+
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #6c3b8e;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #4b2e56;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 1200px) {
+    .card {
+        width: 220px; /* Уменьшаем ширину карточек */
+        padding: 35px 25px; /* Уменьшаем внутренние отступы */
+    }
+    .title {
+        font-size: 1.4em; /* Уменьшаем размер заголовка */
+    }
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста */
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        width: 200px; /* Ещё меньше ширина */
+        padding: 30px 20px;
+    }
+    .title {
+        font-size: 1.2em;
+    }
+    .description {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 180px;
+        padding: 25px 15px;
+    }
+    .title {
+        font-size: 1.1em;
+    }
+    .description {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 150px;
+        padding: 20px 10px;
+    }
+    .title {
+        font-size: 1em;
+    }
+    .description {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 240px) {
+    .container {
+        gap: 15px; /* Уменьшаем расстояние между карточками */
+    }
+
+    .card {
+        width: 95%; /* Карточка будет занимать почти всю ширину экрана */
+        padding: 20px 15px; /* Уменьшаем внутренние отступы */
+        border-radius: 15px; /* Уменьшаем радиус скругления */
+    }
+
+    .card::before {
+        width: 150px;
+        height: 150px;
+        top: -40px;
+        left: -40px; /* Уменьшаем размеры декоративного круга */
+    }
+
+    .title {
+        font-size: 1.2em; /* Уменьшаем размер заголовка */
+    }
+
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста описания */
+    }
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

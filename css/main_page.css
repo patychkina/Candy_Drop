@@ -11,16 +11,42 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Основное изображение */
+/* Стили для секции с изображениями */
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Увеличиваем расстояние между карточками */
+}
+
+.image-container {
+    display: flex;
+    gap: 10vw;
+    width: 100%;
+    max-width: 80%; /* Увеличиваем максимальную ширину */
+    transition: transform 0.3s ease;
+    flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
 .main-image {
-    position:  relative;
-    width: 80%;
+    position: relative;
+    flex: 2; /* Увеличиваем пропорцию фото */
+    padding: 1vw; /* Увеличиваем отступы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     max-width: 2000px;
     height: auto;
     background-size: cover;
     border-radius: 15px;
     margin: 0 auto;
-    margin-right: 10%;
-    margin-left: 10%;
     z-index: 1;
 }
 
@@ -49,32 +75,6 @@ body {
     border-radius: 15px;
     display: block;
     margin: 0;
-}
-
-
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    .main-image {
-        width: 90%; /* Увеличиваем ширину на маленьких экранах */
-        margin-left: 5%; /* Меньше расстояние слева */
-    }
-
-    .text-image {
-        width: 70%; /* Уменьшаем ширину текстового изображения пропорционально */
-        bottom: 5%; /* Корректируем позицию немного ниже */
-    }
-}
-
-@media (max-width: 480px) {
-    .main-image {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .text-image {
-        width: 60%; /* Уменьшаем еще больше для мобильных устройств */
-        bottom: 5%; /* Еще ниже текстовое изображение */
-    }
 }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
