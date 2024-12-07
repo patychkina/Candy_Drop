@@ -5,12 +5,11 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg,#d6bcf8,#f1f1f1f1);
+    background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
     overflow-x: hidden; /* Убираем горизонтальный ползунок */
+    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
 }
 
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* Основное изображение */
 /* Стили для секции с изображениями */
 .image-section {
     display: flex;
@@ -77,13 +76,12 @@ body {
     margin: 0;
 }
 
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Стили для приветственного сообщения */
 .welcome-message {
     position: relative;
     width: 100%;
     max-width: 1557px;
-    height: 93px;
+    height: auto;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Inter', sans-serif;
@@ -95,7 +93,7 @@ body {
     text-align: center;
     color: #714480f6;
     z-index: 3;
-    top: 3vh;
+    margin-top: 3vh;
 }
 
 /* Стили для описания */
@@ -126,7 +124,7 @@ body {
     .welcome-message {
         font-size: 28px;
         line-height: 34px;
-        top: 4vh; /* Уменьшенное расстояние */
+        margin-top: 4vh; /* Уменьшенное расстояние */
     }
 
     .description-message {
@@ -141,7 +139,7 @@ body {
     .welcome-message {
         font-size: 24px;
         line-height: 28px;
-        top: 3vh; /* Еще меньшее расстояние */
+        margin-top: 3vh; /* Еще меньшее расстояние */
     }
 
     .description-message {
@@ -157,7 +155,7 @@ body {
     .welcome-message {
         font-size: 20px;
         line-height: 24px;
-        top: 2vh; /* Минимальное расстояние */
+        margin-top: 2vh; /* Минимальное расстояние */
     }
 
     .description-message {
@@ -168,7 +166,6 @@ body {
     }
 }
 
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Карточки */
 .container {
     max-width: 1200px;
@@ -305,4 +302,3 @@ body {
         font-size: 0.9em; /* Уменьшаем размер текста описания */
     }
 }
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
