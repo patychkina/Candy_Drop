@@ -1,16 +1,18 @@
 /* Стиль футера */
 .site-footer {
+    width: 100%;
     background-color: #1c1c1c; /* Темный фон */
     color: #fff;
-    padding: 15px 20px; /* Уменьшаем отступы */
+    padding: 1vw 2vw; /* Уменьшаем отступы */
     text-align: center;
     font-family: 'Inter', sans-serif;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для футера */
+    box-sizing: border-box;
 }
 
 /* Контейнер для контента футера */
 .footer-content {
-    max-width: 1000px; /* Уменьшаем максимальную ширину */
+    max-width: 100%; /* Уменьшаем максимальную ширину */
     margin: 0 auto;
 }
 
@@ -89,6 +91,21 @@
     height: 60px; /* Расстояние по умолчанию для десктопов */
 }
 
+
+/* Адаптивный дизайн */
+@media (max-width: 1200px) {
+    .card {
+        width: 220px; /* Уменьшаем ширину карточек */
+        padding: 35px 25px; /* Уменьшаем внутренние отступы */
+    }
+    .title {
+        font-size: 1.4em; /* Уменьшаем размер заголовка */
+    }
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста */
+    }
+}
+
 /* Для планшетов */
 @media (max-width: 1024px) {
     .spacer {
@@ -126,3 +143,68 @@
     }
 }
 
+@media (max-width: 992px) {
+    .card {
+        width: 200px; /* Ещё меньше ширина */
+        padding: 30px 20px;
+    }
+    .title {
+        font-size: 1.2em;
+    }
+    .description {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 180px;
+        padding: 25px 15px;
+    }
+    .title {
+        font-size: 1.1em;
+    }
+    .description {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 150px;
+        padding: 20px 10px;
+    }
+    .title {
+        font-size: 1em;
+    }
+    .description {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 240px) {
+    .container {
+        gap: 15px; /* Уменьшаем расстояние между карточками */
+    }
+
+    .card {
+        width: 95%; /* Карточка будет занимать почти всю ширину экрана */
+        padding: 20px 15px; /* Уменьшаем внутренние отступы */
+        border-radius: 15px; /* Уменьшаем радиус скругления */
+    }
+
+    .card::before {
+        width: 150px;
+        height: 150px;
+        top: -40px;
+        left: -40px; /* Уменьшаем размеры декоративного круга */
+    }
+
+    .title {
+        font-size: 1.2em; /* Уменьшаем размер заголовка */
+    }
+
+    .description {
+        font-size: 0.9em; /* Уменьшаем размер текста описания */
+    }
+}
