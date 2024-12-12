@@ -169,7 +169,7 @@ body {
     max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 3vw;
     justify-content: center; /* Центрируем карточки по горизонтали */
     margin: 60px auto 0; /* Увеличиваем отступ сверху для всех экранов */
 }

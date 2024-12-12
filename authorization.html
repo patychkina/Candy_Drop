@@ -17,9 +17,38 @@
             <img src="assets/icons/User.svg" alt="Login Icon">
         </div>
     </header>
+    <div class="container">
+        <div class="auth-box">
+            <h2 class="auth-title">Авторизация</h2>
+            <form id="authForm">
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
 
+                <input
+                    type="text"
+                    id="login"
+                    placeholder="Логин"
+                    class="auth-input"
+                    required
+                />
 
-    <div class="content">
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Пароль"
+                    class="auth-input"
+                    required
+                />
+
+                <button class="auth-button">
+                    Войти
+                </button>
+
+                <div class="auth-footer">
+                    Если у вас нет аккаунта, обратитесь к администратору для создания учетной записи.
+                </div>
+            </form>
+        </div>
+    </div>
         <!-- Ваш основной контент -->
     </div>
     
