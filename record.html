@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Записаться на занятие</title>
+    <title>Candy Drop - Заявка на пробное занятие</title>
     <link rel="stylesheet" href="css/record.css">
     <link rel="stylesheet" href="css/header_with_menu.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -11,30 +11,106 @@
 <body>
     <header>
         <div class="logo">
-            <img src="assets\icons\Logo.svg" alt="Candy Drop Logo">
+            <img src="assets/icons/Logo.svg" alt="Candy Drop Logo">
         </div>
         <nav class="menu">
             <ul>
                 <li><a href="main.html">Главная</a></li>
                 <li><a href="about_us.html">О нас</a></li>
                 <li><a href="achievements.html">Достижения</a></li>
-                <li><a href="record.html"class="selected">Запись</a></li>
+                <li><a href="record.html" class="selected">Запись</a></li>
             </ul>            
         </nav>
         <div class="auth-icon">
-            <a href="authorization.html">
-                <img src="assets/icons/User.svg" alt="Login Icon">
-            </a>
+            <img src="assets/icons/User.svg" alt="Login Icon">
         </div>
     </header>
+    <div class="container">
+        <div class="request-box">
+            <h2 class="request-title">Заявка на пробное занятие</h2>
+            <form id="trialRequestForm">
+                <!-- Блок информации о ребенке -->
+                <div class="child-info">
+                    <h3>Информация о ребенке</h3>
+                    <input
+                        type="text"
+                        id="child-last-name"
+                        placeholder="Фамилия"
+                        class="request-input"
+                        required
+                    />
+                    <input
+                        type="text"
+                        id="child-first-name"
+                        placeholder="Имя"
+                        class="request-input"
+                        required
+                    />
+                    <input
+                        type="text"
+                        id="child-middle-name"
+                        placeholder="Отчество"
+                        class="request-input"
+                    />
+                    <input
+                        type="date"
+                        id="child-birth-date"
+                        placeholder="Дата рождения"
+                        class="request-input"
+                        required
+                    />
+                </div>
 
+                <!-- Блок информации о родителе -->
+                <div class="parent-info">
+                    <h3>Информация о родителе</h3>
+                    <input
+                        type="text"
+                        id="parent-last-name"
+                        placeholder="Фамилия"
+                        class="request-input"
+                        required
+                    />
+                    <input
+                        type="text"
+                        id="parent-first-name"
+                        placeholder="Имя"
+                        class="request-input"
+                        required
+                    />
+                    <input
+                        type="text"
+                        id="parent-middle-name"
+                        placeholder="Отчество"
+                        class="request-input"
+                    />
+                </div>
 
-    <div class="content">
-        <!-- Ваш основной контент -->
+                <!-- Контактная информация -->
+                <div class="contact-info">
+                    <input
+                        type="tel"
+                        id="contact-number"
+                        placeholder="Контактный номер"
+                        class="request-input"
+                        required
+                    />
+                    <input
+                        type="email"
+                        id="contact-email"
+                        placeholder="E-mail"
+                        class="request-input"
+                        required
+                    />
+                </div>
+
+                <button class="request-button">
+                    Отправить заявку
+                </button>
+            </form>
+        </div>
     </div>
-    
-    <!-- Добавим пространство перед футером -->
-    <div class="spacer"></div>
+ 
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; <span id="current-year"></span> Все права защищены. Хореографический коллектив "CANDY DROP".</p>
@@ -54,6 +130,7 @@
     </footer>
 
     <script>
+        // Динамическое обновление года в футере
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>

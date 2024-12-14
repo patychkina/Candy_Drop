@@ -1,11 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
+    overflow-x: hidden;
 }
 
 .container {
@@ -13,29 +13,195 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh; /* Занимаем всю высоту экрана */
-    width: 100vw; /* Занимаем всю ширину экрана */
+    height: 80vh;
+    width: 100vw;
 }
 
 .auth-box {
-    background-color: #E9E5FF; /* Измененный цвет фона */
+    background-color: #E9E5FF;
     padding: 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 1px 7px 20px 3px rgba(18, 16, 16, 0.25);
-    width: 80%; /* Увеличенная ширина */
-    max-width: 600px; /* Увеличенная максимальная ширина */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 500px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем элементы по горизонтали */
-    justify-content: center; /* Центрируем элементы по вертикали */
+    animation: fadeIn 1s ease-in-out;
 }
 
 .auth-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 41px;
+    font-weight: 700;
+    font-size: 2rem;
     color: #714480f6;
-    margin-bottom: 2rem; /* Добавляем отступ снизу */
+    margin-bottom: 1.5rem;
+}
+
+.auth-input {
+    width: 90%;
+    max-width: 400px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.auth-input:focus {
+    border-color: #71448094;
+    box-shadow: 0 0 8px rgba(113, 68, 128, 0.5);
+}
+
+.auth-button {
+    width: 90%;
+    max-width: 400px;
+    padding: 0.8rem;
+    background-color: #71448094;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #71448094;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.auth-button:active {
+    background-color: #71448071;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(0.98);
+}
+
+.auth-footer {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивный дизайн */
+
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 1024px) {
+    .auth-box {
+        padding: 2rem;
+    }
+
+    .auth-title {
+        font-size: 1.8rem;
+    }
+
+    .auth-input {
+        font-size: 0.9rem;
+    }
+
+    .auth-button {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .container {
+        height: 100vh;
+    }
+
+    .auth-box {
+        padding: 1.5rem;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
+
+    .auth-input {
+        font-size: 0.85rem;
+        padding: 0.7rem;
+    }
+
+    .auth-button {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+
+    .auth-footer {
+        font-size: 0.8rem;
+    }
+}
+
+/* Очень маленькие экраны (меньше 480px) */
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .auth-title {
+        font-size: 1.3rem;
+    }
+
+    .auth-input {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .auth-button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .auth-footer {
+        font-size: 0.75rem;
+    }
+}
+
+/* Очень маленькие экраны (меньше 320px) */
+@media (max-width: 320px) {
+    .auth-box {
+        padding: 0.8rem; /* Уменьшаем внутренние отступы */
+        border-radius: 10px; /* Еще больше уменьшаем радиус */
+    }
+
+    .auth-title {
+        font-size: 1.1rem; /* Уменьшаем размер заголовка */
+        margin-bottom: 1rem; /* Уменьшаем отступ снизу */
+    }
+
+    .auth-input {
+        font-size: 0.7rem; /* Уменьшаем шрифт */
+        padding: 0.4rem; /* Уменьшаем отступ внутри */
+    }
+
+    .auth-button {
+        font-size: 0.7rem; /* Уменьшаем шрифт кнопки */
+        padding: 0.4rem; /* Уменьшаем высоту кнопки */
+        border-radius: 15px; /* Радиус кнопки чуть меньше */
+    }
+
+    .auth-footer {
+        font-size: 0.7rem; /* Уменьшаем размер текста футера */
+    }
+
+    .container {
+        height: auto; /* Высота контейнера адаптируется под контент */
+        padding: 1rem; /* Добавляем внутренние отступы */
+    }
 }
