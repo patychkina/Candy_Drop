@@ -31,7 +31,7 @@ main {
 
 /* Центрирование контейнера регистрации */
 .auth-box {
-    background-color: #e9e5ffa6;
+    background-color: #f9effdf3;
     padding: 1.5vw; /* Уменьшаем внутренние отступы */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);

@@ -6,18 +6,20 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden; 
+    box-sizing: border-box; 
 }
 
 /* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    height: 100vh; 
 }
 
 /* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1; 
 }
+
+

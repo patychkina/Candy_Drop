@@ -1,4 +1,3 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,36 +5,34 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    min-height: 100vh;
 }
 
-/* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1;
 }
-/* Стили для секции с преподавателями */
+
 .teachers {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0px; /* Увеличиваем расстояние между карточками */
+    gap: 0px;
 }
 
 .teacher {
     display: flex;
     gap: 10vw;
     width: 100%;
-    max-width: 80%; /* Увеличиваем максимальную ширину */
+    max-width: 80%;
     transition: transform 0.3s ease;
-    flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
 }
@@ -46,8 +43,8 @@ main {
 
 .teacher-photo {
     position: relative;
-    flex: 2; /* Увеличиваем пропорцию фото */
-    padding: 1vw; /* Увеличиваем отступы */
+    flex: 2;
+    padding: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,8 +55,8 @@ main {
     position: absolute;
     left: 0%;
     top: 0%;
-    width: 100%; /* Используем проценты для адаптации */
-    height: 100%; /* Используем проценты для адаптации */
+    width: 100%; 
+    height: 100%; 
     background: #71448056;
     border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
     will-change: border-radius, transform, opacity;
@@ -71,39 +68,38 @@ main {
 }
 
 .teacher:hover .teacher-photo::before {
-    background: #5f207479; /* Изменяем цвет фона при наведении */
-    border-radius: 50%; /* Изменяем форму при наведении */
-    transform: scale(1.1); /* Увеличиваем размер при наведении */
+    background: #5f207479; 
+    border-radius: 50%; 
+    transform: scale(1.1); 
 }
 
 .teacher-photo img {
     width: 100%;
     height: auto;
-    position: relative; /* Убедимся, что изображение находится поверх псевдоэлемента */
+    position: relative; 
     z-index: 1;
 }
 
 .teacher-info {
     margin-top: 14vw;
-    flex: 1; /* Уменьшаем пропорцию текста */
-    padding: 2vw; /* Увеличиваем отступы */
+    flex: 1;
+    padding: 2vw;
     text-align: center;
 }
 
 .teacher-info h2 {
-    margin: 0 0 1vw; /* Увеличиваем отступ снизу */
-    font-size: 2vw; /* Увеличиваем размер текста */
+    margin: 0 0 1vw;
+    font-size: 2vw;
     color: #333;
     white-space: nowrap;
 }
 
 .teacher-info p {
     margin: 0;
-    font-size: 1.5vw; /* Увеличиваем размер текста */
+    font-size: 1.5vw;
     color: #656363;
 }
 
-/* Чередование расположения фото и текста для четных преподавателей */
 .teacher:nth-child(even) {
     flex-direction: row-reverse;
 }
@@ -112,7 +108,6 @@ main {
     text-align: center;
 }
 
-/* Анимация для псевдоэлемента */
 @keyframes sliderShape {
     0%, 100% {
         border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
@@ -131,4 +126,75 @@ main {
     }
 }
 
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////Группы///////////////////////////////////////////////////////////////////////////////*/
+.groups {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2vw;
+    padding: 2vw;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+    max-width: 300px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.group:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.group-photo {
+    width: 100%;
+    margin-bottom: 1vw;
+    overflow: hidden; /* Скрываем лишнее за пределами рамок */
+    border-radius: 15px; /* Лёгкое закругление углов */
+}
+
+.group-photo img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.group:hover .group-photo img {
+    transform: scale(1.1); /* Увеличение фото при наведении */
+}
+
+.group-info h2 {
+    font-size: 1.5vw;
+    margin: 0 0 0.5vw;
+    color: #222; /* Тёмно-серый текст */
+    font-weight: bold;
+}
+
+.group-info p {
+    font-size: 1vw;
+    color: #555; /* Средне-серый текст */
+    line-height: 1.5; /* Удобное чтение текста */
+    margin: 0;
+}
+
+
+/*/////////////////////////////////////////////////Карта///////////////////////////////////////////////////////////////////////////////*/
+.map-section {
+    text-align: center; 
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+#map {
+    border-radius: 20px; 
+    overflow: hidden; 
+    width: 100%; 
+    height: 25vw; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
