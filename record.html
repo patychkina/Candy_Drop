@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <header>
+    <div class="page-container">
+        <header class="header">
         <div class="logo">
             <img src="assets/icons/Logo.svg" alt="Candy Drop Logo">
         </div>
@@ -22,7 +23,9 @@
             </ul>            
         </nav>
         <div class="auth-icon">
-            <img src="assets/icons/User.svg" alt="Login Icon">
+            <a href="authorization.html">
+                <img src="assets/icons/User.svg" alt="Login Icon">
+            </a>
         </div>
     </header>
     <div class="container">
@@ -128,7 +131,7 @@
             </div>
         </div>
     </footer>
-
+    </div>
     <script>
         // Динамическое обновление года в футере
         document.getElementById('current-year').textContent = new Date().getFullYear();

@@ -1,55 +1,69 @@
+/* Основные стили для всей страницы */
 body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #d6bcf8, #f1f1f1);
-    overflow-x: hidden;
+    background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
+    overflow-x: hidden; /* Убираем горизонтальный ползунок */
+    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+}
+
+/* Контейнер страницы, чтобы задать минимальную высоту */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+}
+
+/* Контейнер для основного контента */
+main {
+    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
 }
 
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 120vh;
-    width: 100vw;
+    align-items: center;
 }
 
+/* Блок с запросом */
 .request-box {
-    background-color: #E9E5FF;
-    padding: 2.5rem;
+    background-color: #e9e5ffa6;
+    padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     width: 90%;
-    max-width: 500px;
+    max-width: 450px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    margin-top: 1rem; /* Уменьшаем отступ сверху */
+    margin-bottom: 4rem; /* Уменьшаем отступ снизу */
 }
 
 .request-title {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #714480f6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .child-info h3, .parent-info h3 {
-    font-size: 1rem;  /* Уменьшаем размер шрифта */
+    font-size: 0.9rem;  /* Уменьшаем размер шрифта */
     color: #757575;     /* Цвет серый */
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-weight: 300; /* Убираем жирность */
 }
 
 .request-input {
     width: 90%;
-    max-width: 400px;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
+    max-width: 380px;
+    padding: 0.7rem;
+    margin-bottom: 0.9rem;
     border: 1px solid #ccc;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     transition: all 0.3s;
 }
@@ -61,12 +75,12 @@ body {
 
 .request-button {
     width: 90%;
-    max-width: 400px;
-    padding: 0.8rem;
+    max-width: 380px;
+    padding: 0.7rem;
     background-color: #71448094;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -88,64 +102,82 @@ body {
 
 /* Стили для блоков */
 .child-info, .parent-info {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .child-info h3, .parent-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
 }
 
 .contact-info input {
     margin-bottom: 1rem;
 }
 
-/* Адаптация для экранов до 1024px */
-@media (max-width: 1024px) {
-    .request-box {
-        padding: 2rem;
-    }
-    .request-title {
-        font-size: 1.8rem; /* Уменьшаем размер заголовка */
-    }
-    .request-input, .request-button {
-        width: 95%;
-        max-width: 380px;
-    }
-    .child-info h3, .parent-info h3 {
-        font-size: 1.3rem;  /* Немного уменьшаем размер заголовков */
-    }
-}
+/* Адаптивные стили */
 
-/* Адаптация для экранов до 768px */
-@media (max-width: 768px) {
-    .request-box {
-        padding: 1.5rem;
-    }
-    .request-title {
-        font-size: 1.6rem;
-    }
-    .request-input, .request-button {
-        width: 100%;
-    }
-    .child-info h3, .parent-info h3 {
-        font-size: 1.2rem;  /* Меньший размер заголовков */
-    }
-}
-
-/* Адаптация для экранов до 480px */
+/* Для мобильных устройств */
 @media (max-width: 480px) {
     .request-box {
-        padding: 1rem;
+        padding: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
     }
+
     .request-title {
         font-size: 1.4rem;
     }
+
     .request-input, .request-button {
         width: 100%;
-        font-size: 0.9rem;  /* Уменьшаем размер шрифта в полях */
+        max-width: none;
     }
+
     .child-info h3, .parent-info h3 {
-        font-size: 1rem;  /* Меньше размер заголовков */
+        font-size: 1rem;
+    }
+}
+
+/* Для планшетов */
+@media (max-width: 768px) {
+    .request-box {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .request-title {
+        font-size: 1.6rem;
+    }
+
+    .request-input, .request-button {
+        width: 90%;
+        max-width: 420px;
+    }
+
+    .child-info h3, .parent-info h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Для десктопов */
+@media (min-width: 1024px) {
+    .request-box {
+        padding: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .request-title {
+        font-size: 1.8rem;
+    }
+
+    .request-input, .request-button {
+        width: 90%;
+        max-width: 450px;
+    }
+
+    .child-info h3, .parent-info h3 {
+        font-size: 1.3rem;
     }
 }

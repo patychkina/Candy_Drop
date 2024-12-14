@@ -8,6 +8,7 @@
     font-family: 'Inter', sans-serif;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для футера */
     box-sizing: border-box;
+    margin-top: auto; /* Футер всегда внизу */
 }
 
 /* Контейнер для контента футера */

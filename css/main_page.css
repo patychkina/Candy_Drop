@@ -10,6 +10,18 @@ body {
     box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
 }
 
+/* Контейнер страницы, чтобы задать минимальную высоту */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+}
+
+/* Контейнер для основного контента */
+main {
+    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+}
+
 /* Стили для секции с изображениями */
 .image-section {
     display: flex;
@@ -219,84 +231,4 @@ body {
     font-size: 1em;
     line-height: 1.5;
     color: #4b2e56;
-}
-
-/* Адаптивный дизайн */
-@media (max-width: 1200px) {
-    .card {
-        width: 220px; /* Уменьшаем ширину карточек */
-        padding: 35px 25px; /* Уменьшаем внутренние отступы */
-    }
-    .title {
-        font-size: 1.4em; /* Уменьшаем размер заголовка */
-    }
-    .description {
-        font-size: 0.9em; /* Уменьшаем размер текста */
-    }
-}
-
-@media (max-width: 992px) {
-    .card {
-        width: 200px; /* Ещё меньше ширина */
-        padding: 30px 20px;
-    }
-    .title {
-        font-size: 1.2em;
-    }
-    .description {
-        font-size: 0.8em;
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        width: 180px;
-        padding: 25px 15px;
-    }
-    .title {
-        font-size: 1.1em;
-    }
-    .description {
-        font-size: 0.7em;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        width: 150px;
-        padding: 20px 10px;
-    }
-    .title {
-        font-size: 1em;
-    }
-    .description {
-        font-size: 0.6em;
-    }
-}
-
-@media (max-width: 240px) {
-    .container {
-        gap: 15px; /* Уменьшаем расстояние между карточками */
-    }
-
-    .card {
-        width: 95%; /* Карточка будет занимать почти всю ширину экрана */
-        padding: 20px 15px; /* Уменьшаем внутренние отступы */
-        border-radius: 15px; /* Уменьшаем радиус скругления */
-    }
-
-    .card::before {
-        width: 150px;
-        height: 150px;
-        top: -40px;
-        left: -40px; /* Уменьшаем размеры декоративного круга */
-    }
-
-    .title {
-        font-size: 1.2em; /* Уменьшаем размер заголовка */
-    }
-
-    .description {
-        font-size: 0.9em; /* Уменьшаем размер текста описания */
-    }
 }
