@@ -40,6 +40,8 @@ main {
     animation: fadeIn 1s ease-in-out;
     margin-top: 1rem; /* Уменьшаем отступ сверху */
     margin-bottom: 4rem; /* Уменьшаем отступ снизу */
+    margin-left: 1rem;  /* Один и тот же отступ сверху */
+    margin-right: 1rem;  /* Один и тот же отступ снизу */
 }
 
 .request-title {

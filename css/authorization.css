@@ -41,6 +41,8 @@ main {
     animation: fadeIn 1s ease-in-out;
     margin-top: 1rem;  /* Один и тот же отступ сверху */
     margin-bottom: 1rem;  /* Один и тот же отступ снизу */
+    margin-left: 1rem;  /* Один и тот же отступ сверху */
+    margin-right: 1rem;  /* Один и тот же отступ снизу */
 }
 
 .auth-title {
