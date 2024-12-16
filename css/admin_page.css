@@ -1,0 +1,44 @@
+/* Основные стили для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Оставляем 100% для всего тела страницы */
+    background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
+    overflow-x: hidden; /* Убираем горизонтальный ползунок */
+    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+}
+
+/* Контейнер страницы, чтобы задать минимальную высоту */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+}
+
+/* Контейнер для основного контента */
+main {
+    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+}
+
+/* Центрирование контейнера регистрации */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.admin-profile {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 100%; /* Растянуть на всю высоту контейнера */
+    min-height: calc(100vh - 200px); /* Учет высоты хедера и футера */
+    text-align: center;
+}
+
+.admin-profile h1 {
+    font-size: 2.5rem; /* Размер текста */
+    font-weight: bold; /* Жирный шрифт */
+    color: #333; /* Цвет текста */
+}
