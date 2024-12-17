@@ -5,91 +5,225 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-.container {
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.teachers {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 90vh;
-    width: 100vw;
-    padding: 0.5vw;
+    gap: 0px;
 }
 
-.auth-box {
-    background-color: #E9E5FF; /* Измененный цвет фона */
-    padding: 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 1px 7px 20px 3px rgba(18, 16, 16, 0.25);
-    width: 80%; /* Увеличенная ширина */
-    max-width: 600px; /* Увеличенная максимальная ширина */
+.teacher {
+    display: flex;
+    gap: 10vw;
+    width: 100%;
+    max-width: 80%;
+    transition: transform 0.3s ease;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.teacher:hover {
+    transform: scale(1.05);
+}
+
+.teacher-photo {
+    position: relative;
+    flex: 2;
+    padding: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-photo::before {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%; 
+    height: 100%; 
+    background: #71448056;
+    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+    will-change: border-radius, transform, opacity;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    -webkit-animation: sliderShape 5s linear infinite;
+    transition: background 0.3s ease, border-radius 0.3s ease, transform 0.3s ease;
+}
+
+.teacher:hover .teacher-photo::before {
+    background: #5f207479; 
+    border-radius: 50%; 
+    transform: scale(1.1); 
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: auto;
+    position: relative; 
+    z-index: 1;
+}
+
+.teacher-info {
+    margin-top: 14vw;
+    flex: 1;
+    padding: 2vw;
     text-align: center;
-    margin-top: -15vh; /* Поднимаем окошко авторизации выше */
+}
+
+.teacher-info h2 {
+    margin: 0 0 1vw;
+    font-size: 2vw;
+    color: #333;
+    white-space: nowrap;
+}
+
+.teacher-info p {
+    margin: 0;
+    font-size: 1.5vw;
+    color: #656363;
+}
+
+.teacher:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.teacher:nth-child(even) .teacher-info {
+    text-align: center;
+}
+
+@keyframes sliderShape {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
+
+/*/////////////////////////////////////////////////Группы///////////////////////////////////////////////////////////////////////////////*/
+.groups {
+    display: flex;
+    flex-direction: row; /* Элементы располагаются горизонтально */
+    gap: 1vw; /* Расстояние между группами по горизонтали */
+    padding: 0; /* Убираем внутренние отступы */
+    justify-content: center; /* Выравниваем группы по центру */
+    align-items: flex-start; /* Элементы выравнены по верхнему краю */
+    width: 100vw; /* Контейнер занимает всю ширину страницы */
+}
+
+.group {
+    position: relative;
+    width: auto; /* Ширина группы адаптируется к содержимому */
+    margin-top: 5vw; /* Увеличиваем отступ сверху */
+    margin-bottom: 5vw; /* Увеличиваем отступ снизу */
+    overflow: hidden;
+    border-radius: 0; /* Убираем скругление */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Лёгкая тень для выделения */
+    transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрируем элементы по горизонтали */
-    justify-content: center; /* Центрируем элементы по вертикали */
+    align-items: center;
 }
 
-.auth-title {
-    font-family: 'Inter', sans-serif;
+.group-photo img {
+    width: 100%; /* Картинка адаптируется по ширине группы */
+    height: auto; /* Сохраняется пропорциональная высота */
+    display: block;
+    border-radius: 0; /* Убираем скругление */
+    transition: transform 0.3s ease;
+}
+
+.group:hover .group-photo img {
+    transform: scale(1.1); /* Увеличиваем фото при наведении */
+}
+
+.group-info {
+    position: absolute;
+    top: 50%; /* Ставим текст по центру вертикально */
+    left: 50%; /* Ставим текст по центру горизонтально */
+    transform: translate(-50%, -50%); /* Сдвигаем центр блока в его середину */
+    width: 90%; /* Текстовый блок занимает 90% ширины группы */
+    height: auto; /* Высота подстраивается под содержимое */
+    background: rgba(0, 0, 0, 0.6); /* Затемнённый фон */
+    color: #fff; /* Белый текст */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем текст внутри */
+    align-items: center; /* Центрируем текст по горизонтали */
+    text-align: center;
+    opacity: 0; /* Текст скрыт по умолчанию */
+    transition: opacity 0.3s ease;
+    padding: 2vw;
+    border-radius: 0;
+    overflow-wrap: break-word; /* Перенос слов, чтобы текст не выходил за границы */
+    word-wrap: break-word;
+}
+
+.group:hover .group-info {
+    opacity: 1; /* Текст становится видимым */
+}
+
+.group-info h2 {
+    margin: 0 0 0.8vw;
+    font-size: 2vw;
     font-weight: 600;
-    font-size: 34px;
-    line-height: 41px;
-    color: #714480f6;
-    margin-bottom: 2rem; /* Добавляем отступ снизу */
+    text-transform: uppercase;
+    color: #d5abf1;
 }
 
-.auth-input {
-    border: 1px solid #D1D5DB;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    width: 100%;
-    border-radius: 0.75rem;
-    font-size: 1.125rem;
-    color: #3B006E; /* Измененный цвет текста */
-    font-family: 'Inter', sans-serif;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box; /* Убедимся, что padding включен в ширину */
+.group-info p {
+    font-size: 1.3vw;
+    line-height: 1.2; /* Уменьшенный межстрочный интервал */
+    max-width: 100%;
+    margin: 0;
+    color: #f4f4f4;
+    font-style: italic;
 }
 
-.auth-input:hover {
-    border-color: #8B5CF6; /* Измененный цвет границы */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+.group-info p:hover {
+    color: #918e92; /* Цвет текста при наведении на описание */
 }
 
-.auth-input:focus {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+/*/////////////////////////////////////////////////Карта///////////////////////////////////////////////////////////////////////////////*/
+.map-section {
+    text-align: center; 
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
 
-.auth-button {
-    background: linear-gradient(45deg, #A9A5FF, #6B46C1); /* Градиентный фон кнопки */
-    color: #FFFFFF;
-    padding: 1rem;
-    border-radius: 9999px;
-    width: 100%;
-    font-size: 1.25rem;
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+#map {
+    border-radius: 20px; 
+    overflow: hidden; 
+    width: 100%; 
+    height: 25vw; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-.auth-button:hover {
-    background: linear-gradient(45deg, #6B46C1, #A9A5FF); /* Измененный градиентный фон кнопки при наведении */
-    transform: scale(1.05); /* Увеличение кнопки при наведении */
-}
 
-.auth-footer {
-    font-size: 0.875rem;
-    margin-top: 1rem;
-    color: #3B006E; /* Измененный цвет текста */
-    font-family: 'Inter', sans-serif;
-}
-
-.error-message {
-    color:
-}

@@ -127,91 +127,227 @@ main {
 }
 
 /*/////////////////////////////////////////////////Группы///////////////////////////////////////////////////////////////////////////////*/
+.groups-wrapper {
+    position: relative;
+    padding: 10vw 2vw; /* Увеличенные отступы сверху и снизу */
+}
+
 .groups {
     display: flex;
-    flex-direction: column; /* Элементы располагаются вертикально */
-    gap: 4vw; /* Увеличиваем расстояние между элементами для улучшения восприятия */
-    padding: 4vw;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px; /* Округлые углы для контейнера */
+    flex-direction: row; /* Горизонтальное расположение групп */
+    justify-content: space-evenly; /* Равномерное распределение пространства */
+    align-items: flex-start;
+    gap: 3vw; /* Расстояние между группами */
+    background: transparent; /* Прозрачный фон */
 }
 
 .group {
-    position: relative;
-    width: 100%;
-    max-width: 100%; /* Убираем максимальную ширину */
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
-    transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     display: flex;
-    flex-direction: column; /* Элементы внутри групп располагаются вертикально */
+    flex-direction: column; /* Вертикальное расположение внутри группы */
     align-items: center;
+    width: 28%; /* Ширина каждой группы */
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff; /* Белый фон для контраста */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, min-height 0.4s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Устанавливаем слой выше базового уровня */
+    transform: scale(1); /* По умолчанию стандартный размер */
+    min-height: 25vw; /* Минимальная высота, если текст скрыт */
+}
+
+.group.active {
+    transform: scale(1.2); /* Увеличенная карточка */
+    z-index: 3; /* Выше остальных */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    min-height: 38vw; /* Увеличенная высота при активной карточке с описанием */
 }
 
 .group:hover {
-    transform: translateY(-10px); /* Легкий подъем при наведении */
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15); /* Усиленная тень при наведении */
+    transform: scale(1.03); /* Лёгкое увеличение при наведении */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+    background: linear-gradient(to bottom, #fff, #f0f0f0); /* Лёгкий градиент при наведении */
 }
 
 .group-photo img {
-    width: 100%; /* Картинка растягивается на всю ширину контейнера */
-    height: 70%; /* Уменьшаем высоту картинки */
-    object-fit: cover; /* Картинка заполняет контейнер, сохраняя пропорции */
-    display: block;
-    border-radius: 10px; /* Округленные углы для картинок */
-    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0; /* Скругление только сверху */
+    transition: transform 0.4s ease;
 }
 
 .group:hover .group-photo img {
-    transform: scale(1.1); /* Увеличиваем фото при наведении */
+    transform: scale(1.05); /* Лёгкое увеличение изображения при наведении */
 }
 
 .group-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Затемнённый фон */
-    color: #fff; /* Белый текст */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 2.5vw;
     text-align: center;
-    opacity: 0; /* Текст скрыт по умолчанию */
-    transition: opacity 0.3s ease;
-    padding: 2vw;
-    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0; /* Скрыть текст */
 }
 
-.group:hover .group-info {
-    opacity: 1; /* Текст становится видимым */
+/* Когда карточка активна, показываем текст p */
+.group.active .group-info p {
+    opacity: 1; /* Текст появляется при активации */
 }
 
 .group-info h2 {
-    margin: 0 0 0.8vw;
-    font-size: 2vw;
-    font-weight: 600;
+    margin: 0 0 1vw;
+    font-size: 1.7vw;
+    font-weight: 700;
     text-transform: uppercase;
-    color: #d5abf1; /* Яркий оранжевый для заголовков */
+    letter-spacing: 0.05em;
+    color: #714480b9;
+    transition: color 0.3s ease;
 }
 
 .group-info p {
-    font-size: 1.3vw;
-    line-height: 1.5;
-    max-width: 90%;
+    font-size: 1vw;
+    line-height: 1.4;
     margin: 0;
-    color: #f4f4f4;
-    font-style: italic;
+    color: #555;
+    opacity: 0; /* Скрытие текста p по умолчанию */
+    transition: opacity 0.3s ease;
 }
 
-.group-info p:hover {
-    color: #918e92; /* Цвет текста при наведении на описание */
+/* Когда карточка активна, показываем текст p */
+.group.active .group-info p {
+    opacity: 1; /* Текст появляется при активации */
 }
 
+.group-info:hover h2 {
+    color: #714480f6; /* Более насыщенный цвет заголовка при наведении */
+}
+
+.group-info:hover p {
+    color: #333; /* Текст становится ярче при наведении */
+}
+
+/* Стили для стрелок */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4vw;
+    height: 4vw;
+    background: rgba(164, 92, 192, 0.8); /* Полупрозрачный фон */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2vw;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 2; /* Выше карточек */
+}
+
+.arrow:hover {
+    background: rgba(120, 57, 171, 0.9);
+    transform: scale(1.1);
+}
+
+.arrow.left {
+    left: 2vw;
+}
+
+.arrow.right {
+    right: 2vw;
+}
+/*/////////////////////////////////////////////////Оплата///////////////////////////////////////////////////////////////////////////////*/
+.payment-info {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    position: relative;
+    padding: 6vw;
+    margin: -5vw auto 5vw; /* Увеличили нижний отступ */
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    z-index: 1; /* Текст будет поверх фигуры */
+}
+
+.payment-info h2 {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: #714480f6;
+    margin-bottom: 2vw;
+    position: relative; /* Задаём позицию для текста */
+}
+
+.price {
+    margin-bottom: 2vw;
+}
+
+.amount {
+    font-size: 2vw;
+    font-weight: 700;
+    color: #714480b9;
+    margin: 0;
+}
+
+.note {
+    font-size: 1vw;
+    color: #555;
+    margin-top: 1vw;
+}
+
+.individual {
+    padding: 1.5vw;
+    margin-top: 2vw;
+}
+
+.individual-text {
+    font-size: 1.1vw;
+    color: #333;
+    margin: 0;
+}
+
+.individual-cost {
+    font-size: 1.3vw;
+    font-weight: 700;
+    color: #714480b9;
+    margin-top: 1vw;
+}
+
+/* Фигура с анимацией */
+.slider-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e8f0fe; /* Цвет фона фигуры */
+    z-index: -1; /* Фигура находится позади текста */
+    animation: sliderShape 5s infinite;
+    transform-origin: center center;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+/* Анимация фона */
+@keyframes sliderShape {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
 
 /*/////////////////////////////////////////////////Карта///////////////////////////////////////////////////////////////////////////////*/
 .map-section {
