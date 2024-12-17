@@ -129,56 +129,87 @@ main {
 /*/////////////////////////////////////////////////Группы///////////////////////////////////////////////////////////////////////////////*/
 .groups {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 2vw;
-    padding: 2vw;
+    flex-direction: column; /* Элементы располагаются вертикально */
+    gap: 4vw; /* Увеличиваем расстояние между элементами для улучшения восприятия */
+    padding: 4vw;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px; /* Округлые углы для контейнера */
 }
 
 .group {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Убираем максимальную ширину */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
+    transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Элементы внутри групп располагаются вертикально */
     align-items: center;
-    text-align: center;
-    width: 25%;
-    max-width: 300px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .group:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-.group-photo {
-    width: 100%;
-    margin-bottom: 1vw;
-    overflow: hidden; /* Скрываем лишнее за пределами рамок */
-    border-radius: 15px; /* Лёгкое закругление углов */
+    transform: translateY(-10px); /* Легкий подъем при наведении */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15); /* Усиленная тень при наведении */
 }
 
 .group-photo img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Картинка растягивается на всю ширину контейнера */
+    height: 70%; /* Уменьшаем высоту картинки */
+    object-fit: cover; /* Картинка заполняет контейнер, сохраняя пропорции */
+    display: block;
+    border-radius: 10px; /* Округленные углы для картинок */
     transition: transform 0.3s ease;
 }
 
 .group:hover .group-photo img {
-    transform: scale(1.1); /* Увеличение фото при наведении */
+    transform: scale(1.1); /* Увеличиваем фото при наведении */
+}
+
+.group-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Затемнённый фон */
+    color: #fff; /* Белый текст */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Текст скрыт по умолчанию */
+    transition: opacity 0.3s ease;
+    padding: 2vw;
+    border-radius: 15px;
+}
+
+.group:hover .group-info {
+    opacity: 1; /* Текст становится видимым */
 }
 
 .group-info h2 {
-    font-size: 1.5vw;
-    margin: 0 0 0.5vw;
-    color: #222; /* Тёмно-серый текст */
-    font-weight: bold;
+    margin: 0 0 0.8vw;
+    font-size: 2vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #d5abf1; /* Яркий оранжевый для заголовков */
 }
 
 .group-info p {
-    font-size: 1vw;
-    color: #555; /* Средне-серый текст */
-    line-height: 1.5; /* Удобное чтение текста */
+    font-size: 1.3vw;
+    line-height: 1.5;
+    max-width: 90%;
     margin: 0;
+    color: #f4f4f4;
+    font-style: italic;
+}
+
+.group-info p:hover {
+    color: #918e92; /* Цвет текста при наведении на описание */
 }
 
 
