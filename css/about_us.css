@@ -24,6 +24,8 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 0px;
+    margin-top: 5vw;
+    margin-bottom: 2vw;
 }
 
 .teacher {
@@ -31,6 +33,7 @@ main {
     gap: 10vw;
     width: 100%;
     max-width: 80%;
+    margin: -4vw auto; /* Увеличили нижний отступ */
     transition: transform 0.3s ease;
     flex-wrap: nowrap;
     justify-content: center;
@@ -266,7 +269,7 @@ main {
     color: #333;
     position: relative;
     padding: 6vw;
-    margin: -5vw auto 5vw; /* Увеличили нижний отступ */
+    margin: -4vw auto 2vw; /* Увеличили нижний отступ */
     width: 80%;
     max-width: 600px;
     text-align: center;
@@ -323,7 +326,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #e8f0fe; /* Цвет фона фигуры */
+    background-color: #fdf7f7; /* Цвет фона фигуры */
     z-index: -1; /* Фигура находится позади текста */
     animation: sliderShape 5s infinite;
     transform-origin: center center;
@@ -354,6 +357,7 @@ main {
     text-align: center; 
     margin-left: 3vw;
     margin-right: 3vw;
+    margin-bottom: 2vw;
 }
 
 #map {

@@ -11,67 +11,68 @@
 <body>
     <div class="page-container">
         <header class="header">
-        <div class="logo">
-            <a href="main.html">
-                <img src="assets\icons\NameLogo.png" alt="Candy Drop Logo">
-            </a>
-        </div>
+            <div class="logo">
+                <a href="main.html">
+                    <img src="assets/icons/NameLogo.png" alt="Candy Drop Logo">
+                </a>
+            </div>
         </header>
         <div class="container">
-        <div class="auth-box">
-            <h2 class="auth-title">Авторизация</h2>
-            <form id="authForm">
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            <div class="auth-box">
+                <h2 class="auth-title">Авторизация</h2>
+                <form id="authForm">
+                    <div id="errorMessage" class="error-message" style="display: none;"></div>
 
-                <input
-                    type="text"
-                    id="login"
-                    placeholder="Логин"
-                    class="auth-input"
-                    required
-                />
+                    <input
+                        type="text"
+                        id="login"
+                        placeholder="Логин"
+                        class="auth-input"
+                        required
+                    />
 
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Пароль"
-                    class="auth-input"
-                    required
-                />
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Пароль"
+                        class="auth-input"
+                        required
+                    />
 
-                <button class="auth-button">
-                    Войти
-                </button>
+                    <button class="auth-button">
+                        Войти
+                    </button>
 
-                <div class="auth-footer">
-                    Если у вас нет аккаунта, обратитесь к администратору для создания учетной записи.
-                </div>
-            </form>
+                    <div class="auth-footer">
+                        Если у вас нет аккаунта, обратитесь к администратору для создания учетной записи.
+                    </div>
+                </form>
             </div>
         </div>
         <!-- Ваш основной контент -->
-    
-    <!-- Добавим пространство перед футером -->
+
+        <!-- Добавим пространство перед футером -->
         <div class="spacer"></div>
-    
+
         <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; <span id="current-year"></span> Все права защищены. Хореографический коллектив "CANDY DROP".</p>
-            <div class="footer-links">
-                <a href="/privacy-policy">Политика конфиденциальности</a>
-                <a href="/terms-of-service">Условия использования</a>
+            <div class="footer-content">
+                <p>&copy; <span id="current-year"></span> Все права защищены. Хореографический коллектив "CANDY DROP".</p>
+                <div class="footer-links">
+                    <a href="/privacy-policy">Политика конфиденциальности</a>
+                    <a href="/terms-of-service">Условия использования</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://t.me/+0C7HjmbkXK05MTYy" target="_blank">
+                        <img src="assets/icons/telegram_icon.svg" alt="Telegram" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com/candy_drop_tgn?igsh=MWdrZXExNXVkMWRhNQ==" target="_blank">
+                        <img src="assets/icons/instagram_icon.svg" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
             </div>
-            <div class="footer-social">
-                <a href="https://t.me/+0C7HjmbkXK05MTYy" target="_blank">
-                    <img src="assets/icons/telegram_icon.svg" alt="Telegram" class="social-icon">
-                </a>
-                <a href="https://www.instagram.com/candy_drop_tgn?igsh=MWdrZXExNXVkMWRhNQ==" target="_blank">
-                    <img src="assets/icons/instagram_icon.svg" alt="Instagram" class="social-icon">
-                </a>
-            </div>
-        </div>
         </footer>
     </div>
-    
+
+    <script src="js/auth.js"></script>
 </body>
 </html>
