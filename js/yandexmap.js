@@ -1,9 +1,9 @@
 ymaps.ready(init);
 function init() {
     var map = new ymaps.Map("map", {
-        center: [47.215572, 38.916527], 
-        zoom: 17, 
-        controls: ['zoomControl', 'geolocationControl'] 
+        center: [47.215572, 38.916527],
+        zoom: 17,
+        controls: ['zoomControl', 'geolocationControl']
     });
 
     // Добавляем метку
@@ -22,4 +22,9 @@ function init() {
     );
 
     map.geoObjects.add(placemark);
+
+    // Добавляем слой пробок
+    var trafficControl = new ymaps.control.TrafficControl({ state: { providerKey: 'traffic#actual', providerStateName: 'provision' } });
+    map.controls.add(trafficControl);
+
 }

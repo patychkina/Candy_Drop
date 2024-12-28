@@ -6,20 +6,272 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; 
-    box-sizing: border-box; 
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    height: 100vh; 
+    height: 100%;
 }
 
 /* Контейнер для основного контента */
 main {
-    flex: 1; 
+    flex: 1;
+}
+
+/*/////////////////////////////////////////////////Достижения///////////////////////////////////////////////////////////////////////////////*/
+
+/* Контейнер для контента */
+.content-container {
+    margin-top: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4vw; /* Расстояние между контейнерами */
+    width: 100%;
+    padding: 20px; /* Добавляем отступы для лучшего выравнивания */
+}
+
+/* Контейнер для изображения и текста */
+.content-item {
+    display: flex;
+    align-items: center; /* Центрирование текста вертикально */
+    gap: 20px; /* Расстояние между изображением и текстом */
+    width: 100%;
+    max-width: 45%; /* Ограничиваем максимальную ширину контейнера */
+    position: relative; /* Добавляем position relative для анимации */
+    overflow: hidden; /* Скрываем переполнение */
+}
+
+.content-item img {
+    max-width: 55%; /* Уменьшаем ширину изображений */
+    height: auto;
+    border-radius: 8px; /* Скругление углов изображений */
+}
+
+/* Применяем анимации к четным и нечетным изображениям */
+.content-item:nth-child(even) img {
+    -webkit-animation: sliderShape1 5s linear infinite;
+    animation: sliderShape1 5s linear infinite;
+}
+
+.content-item:nth-child(odd) img {
+    -webkit-animation: sliderShape2 5s linear infinite;
+    animation: sliderShape2 5s linear infinite;
+}
+
+.main-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Менее жирный шрифт */
+    font-size: 18px; /* Уменьшаем размер текста */
+    line-height: 1.5; /* Улучшаем межстрочное расстояние */
+    color: #714480f6;
+    text-align: center; /* Центрирование текста */
+    padding: 0 20px; /* Добавляем отступы слева и справа */
+}
+
+/* Фигура с анимацией 1 */
+.slider-shape-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Цвет фона фигуры */
+    z-index: -1; /* Фигура находится позади текста */
+    animation: sliderShape1 5s infinite;
+    transform-origin: center center;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+/* Фигура с анимацией 2 */
+.slider-shape-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Цвет фона фигуры */
+    z-index: -1; /* Фигура находится позади текста */
+    animation: sliderShape2 5s infinite;
+    transform-origin: center center;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+/* Анимация фона 1 */
+@keyframes sliderShape1 {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
+
+/* Анимация фона 2 */
+@keyframes sliderShape2 {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    34% {
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        transform: translate3d(0, -5px, 0) rotateZ(0.01deg);
+    }
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+    67% {
+        border-radius: 30% 70% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 3px, 0) rotateZ(0.01deg);
+    }
+}
+
+/* Фигура с анимацией */
+.slider-shape1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    height: 80%;
+    background-color: #71448056; /* Цвет фона фигуры */
+    z-index: -1; /* Фигура находится позади текста */
+    animation: sliderShape1 5s infinite;
+    transform-origin: center center;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+.slider-shape2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    height: 80%;
+    background-color: #71448056; /* Цвет фона фигуры */
+    z-index: -1; /* Фигура находится позади текста */
+    animation: sliderShape2 5s infinite;
+    transform-origin: center center;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
 }
 
 
+/* Медиа-запросы для адаптации под разные разрешения экранов */
+@media (max-width: 1200px) {
+    .main-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .content-item {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-item {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-text {
+        font-size: 10px;
+    }
+}
+/*/////////////////////////////////////////////////Поездки///////////////////////////////////////////////////////////////////////////////*/
+.contests-wrapper {
+    position: relative;
+    padding: 10vw 2vw; /* Увеличенные отступы сверху и снизу */
+}
+
+.contests {
+    display: flex;
+    flex-direction: row; /* Горизонтальное расположение конкурсов */
+    justify-content: space-evenly; /* Равномерное распределение пространства */
+    align-items: flex-start;
+    gap: 3vw; /* Расстояние между конкурсами */
+    background: transparent; /* Прозрачный фон */
+}
+
+.contest {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение внутри конкурса */
+    align-items: center;
+    width: 32%; /* Увеличенная ширина каждого конкурса */
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff; /* Белый фон для контраста */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, min-height 0.4s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Устанавливаем слой выше базового уровня */
+    transform: scale(1); /* По умолчанию стандартный размер */
+    min-height: 30vw; /* Увеличенная минимальная высота */
+}
+
+.contest:hover {
+    transform: scale(1.03); /* Лёгкое увеличение при наведении */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+    background: linear-gradient(to bottom, #fff, #f0f0f0); /* Лёгкий градиент при наведении */
+}
+
+.contest-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0; /* Скругление только сверху */
+    transition: transform 0.4s ease;
+}
+
+.contest:hover .contest-photo img {
+    transform: scale(1.05); /* Лёгкое увеличение изображения при наведении */
+}
+
+.contest-info {
+    padding: 2.5vw;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0; /* Скрыть текст */
+}
+
+.contest-info p {
+    margin: 0;
+    font-size: 1.2vw; /* Уменьшенный размер текста */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #714480b9;
+    transition: color 0.3s ease;
+}
+
+.contest-info:hover p {
+    color: #714480f6; /* Более насыщенный цвет заголовка при наведении */
+}
