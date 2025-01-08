@@ -96,6 +96,22 @@
 
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        
+        // Проверка наличия сессии
+        fetch('http://localhost:8080/protected', {
+            method: 'GET',
+            credentials: 'include' // Включите эту строку для отправки куки
+        })
+        .then(response => {
+            if (response.ok) {
+                // Изменить ссылку иконки авторизации, если пользователь уже авторизован
+                document.getElementById('auth-link').href = 'child_page.html';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     </script>
 </body>
 </html>

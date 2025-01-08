@@ -70,8 +70,8 @@ func main() {
 	})
 
 	handler := c.Handler(mux)
+	log.Print("Succes")
 	err = http.ListenAndServe(":8080", handler) // устанавливаем порт веб-сервера
-
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
@@ -116,14 +116,14 @@ func loginHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	log.Printf("Attempting to login user with login: %s", creds.Login)
 
 	var user User
-	err = db.QueryRow("SELECT userid, password FROM \"User\" WHERE Login = $1", creds.Login).Scan(&user.UserID, &user.Password)
+	err = db.QueryRow("SELECT userid, password, privilege FROM \"User\" WHERE Login = $1", creds.Login).Scan(&user.UserID, &user.Password, &user.Privilege)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			log.Println("No user found with the provided login")
-			http.Error(w, "Invalid credentials", http.StatusUnauthorized)
+			http.Error(w, "User", http.StatusUnauthorized)
 		} else {
 			log.Println("Error querying database:", err)
-			http.Error(w, "Invalid credentials", http.StatusUnauthorized)
+			http.Error(w, "User", http.StatusUnauthorized)
 		}
 		return
 	}
@@ -133,7 +133,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(creds.Password))
 	if err != nil {
 		log.Println("Error comparing passwords:", err)
-		http.Error(w, "Invalid credentials", http.StatusUnauthorized)
+		http.Error(w, "Pass", http.StatusUnauthorized)
 		return
 	}
 
@@ -142,7 +142,8 @@ func loginHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	session.Save(r, w)
 
 	log.Println("Login successful, session set")
-	w.Write([]byte("Login successful"))
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"privilege": user.Privilege})
 }
 
 func protectedHandler(w http.ResponseWriter, r *http.Request) {
