@@ -1,4 +1,3 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,37 +5,34 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    min-height: 100vh;
 }
 
-/* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1;
 }
 
-/* Стили для секции с изображениями */
 .image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2vw; /* Увеличиваем расстояние между карточками */
+    gap: 2vw;
 }
 
 .image-container {
     display: flex;
     gap: 10vw;
     width: 100%;
-    max-width: 80%; /* Увеличиваем максимальную ширину */
+    max-width: 80%;
     transition: transform 0.3s ease;
-    flex-wrap: nowrap; /* Предотвращаем перенос на новую строку */
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
 }
@@ -47,8 +43,8 @@ main {
 
 .main-image {
     position: relative;
-    flex: 2; /* Увеличиваем пропорцию фото */
-    padding: 1vw; /* Увеличиваем отступы */
+    flex: 2;
+    padding: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +64,6 @@ main {
     margin: 0;
 }
 
-/* Текстовое изображение поверх основного изображения */
 .text-image {
     position: absolute;
     bottom: 5%;
@@ -86,7 +81,6 @@ main {
     margin: 0;
 }
 
-/* Стили для приветственного сообщения */
 .welcome-message {
     position: relative;
     width: 100%;
@@ -98,18 +92,17 @@ main {
     font-weight: 600;
     font-size: 34px;
     line-height: 41px;
-    padding-left: 10%; /* Адаптивный отступ слева */
-    padding-right: 10%; /* Адаптивный отступ справа */
+    padding-left: 10%;
+    padding-right: 10%;
     text-align: center;
     color: #714480f6;
     z-index: 3;
     margin-top: 3vh;
 }
 
-/* Стили для описания */
 .description-message {
     position: relative;
-    top: 3vh; /* Меньший отступ между welcome-message и description-message */
+    top: 3vh;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -119,71 +112,65 @@ main {
     font-weight: 400;
     font-size: 30px;
     line-height: 40px;
-    padding-left: 10%; /* Адаптивный отступ слева */
-    padding-right: 10%; /* Адаптивный отступ справа */
+    padding-left: 10%;
+    padding-right: 10%;
     text-align: center;
     letter-spacing: -1px;
     color: #656363;
     z-index: 2;
 }
 
-/* Адаптивные стили */
-
-/* Для экранов меньше 1200px */
 @media (max-width: 1200px) {
     .welcome-message {
         font-size: 28px;
         line-height: 34px;
-        margin-top: 4vh; /* Уменьшенное расстояние */
+        margin-top: 4vh;
     }
 
     .description-message {
         font-size: 26px;
         line-height: 32px;
-        top: 3vh; /* Меньший отступ */
+        top: 3vh;
     }
 }
 
-/* Для экранов меньше 768px */
 @media (max-width: 768px) {
     .welcome-message {
         font-size: 24px;
         line-height: 28px;
-        margin-top: 3vh; /* Еще меньшее расстояние */
+        margin-top: 3vh;
     }
 
     .description-message {
         font-size: 22px;
         line-height: 26px;
-        top: 1vh; /* Меньший отступ */
+        top: 1vh;
         width: 90%;
     }
 }
 
-/* Для экранов меньше 480px */
 @media (max-width: 480px) {
     .welcome-message {
         font-size: 20px;
         line-height: 24px;
-        margin-top: 2vh; /* Минимальное расстояние */
+        margin-top: 2vh;
     }
 
     .description-message {
         font-size: 18px;
         line-height: 22px;
-        top: 1vh; /* Минимальный отступ */
+        top: 1vh;
         width: 90%;
     }
 }
 
-/* Карточки */
 .container {
     max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
-    justify-content: center; /* Центрируем карточки по горизонтали */
-    margin: 60px auto 0; /* Увеличиваем отступ сверху для всех экранов */
+    justify-content: center;
+    margin: 60px auto 0;
 }
 
 .card {

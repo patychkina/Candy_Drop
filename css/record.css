@@ -1,4 +1,3 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,20 +5,18 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden; 
+    box-sizing: border-box;
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    min-height: 100vh; 
 }
 
-/* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1; 
 }
 
 .container {
@@ -28,7 +25,6 @@ main {
     align-items: center;
 }
 
-/* Блок с запросом */
 .request-box {
     background-color: #fffeff;
     padding: 2rem;
@@ -38,10 +34,10 @@ main {
     max-width: 450px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    margin-top: 1rem; /* Уменьшаем отступ сверху */
-    margin-bottom: 4rem; /* Уменьшаем отступ снизу */
-    margin-left: 1rem;  /* Один и тот же отступ сверху */
-    margin-right: 1rem;  /* Один и тот же отступ снизу */
+    margin-top: 1rem; 
+    margin-bottom: 4rem;
+    margin-left: 1rem;  
+    margin-right: 1rem;  
 }
 
 .request-title {
@@ -52,10 +48,10 @@ main {
 }
 
 .child-info h3, .parent-info h3 {
-    font-size: 0.9rem;  /* Уменьшаем размер шрифта */
-    color: #757575;     /* Цвет серый */
+    font-size: 0.9rem;  
+    color: #757575;     
     margin-bottom: 0.8rem;
-    font-weight: 300; /* Убираем жирность */
+    font-weight: 300; 
 }
 
 .request-input {
@@ -102,7 +98,6 @@ main {
     transform: scale(0.98);
 }
 
-/* Стили для блоков */
 .child-info, .parent-info {
     margin-bottom: 1.5rem;
 }
@@ -116,9 +111,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Адаптивные стили */
-
-/* Для мобильных устройств */
 @media (max-width: 480px) {
     .request-box {
         padding: 1.2rem;
@@ -140,7 +132,6 @@ main {
     }
 }
 
-/* Для планшетов */
 @media (max-width: 768px) {
     .request-box {
         padding: 1.5rem;
@@ -162,7 +153,6 @@ main {
     }
 }
 
-/* Для десктопов */
 @media (min-width: 1024px) {
     .request-box {
         padding: 2rem;

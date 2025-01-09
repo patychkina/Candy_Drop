@@ -5,16 +5,14 @@
 })
 .then(response => {
     if (response.ok) {
-        return response.json(); // Получаем ответ в формате JSON
+        return response.json(); 
     } else {
         throw new Error('No session found');
     }
 })
 .then(data => {
-    // Обработка ответа от сервера
-    const { user_id, privilege } = data; // Извлекаем user_id и привилегию из ответа
+    const { user_id, privilege } = data; 
     
-    // Меняем href в зависимости от уровня привилегий
     const authLink = document.querySelector('.auth-icon a');
     switch (privilege) {
         case "0":
@@ -30,7 +28,6 @@
             authLink.setAttribute('href', 'parent_page.html');
             break;
         default:
-            // Если привилегия не найдена, оставляем ссылку на авторизацию
             authLink.setAttribute('href', 'authorization.html');
             break;
     }

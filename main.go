@@ -41,7 +41,7 @@ func main() {
 
 	// Настройка CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://127.0.0.1:5500"}, // разрешить доступ с frontend
+		AllowedOrigins:   []string{"http://127.0.0.1:5500"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Set-Cookie"},
 		AllowCredentials: true,
@@ -65,7 +65,7 @@ func main() {
 
 	handler := c.Handler(mux)
 	log.Print("Success")
-	err = http.ListenAndServe(":8080", handler) // устанавливаем порт веб-сервера
+	err = http.ListenAndServe(":8080", handler)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
@@ -144,18 +144,17 @@ func loginHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 	log.Println("Login successful, session set")
 
-	// Устанавливаем cookie для сессии с правильными аттрибутами
 	http.SetCookie(w, &http.Cookie{
 		Name:     "session-name",
 		Value:    session.ID,
 		Path:     "/",
 		HttpOnly: true,                 // Защищает от XSS атак
-		Secure:   false,                // Поставьте true, если используете HTTPS
+		Secure:   false,                // true, если используете HTTPS
 		SameSite: http.SameSiteLaxMode, // Может быть Strict или None для кросс-доменных запросов
 	})
 
 	w.Header().Set("Content-Type", "application/json")
-	// Возвращаем и UserID, и Privilege
+
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"user_id":   user.UserID,
 		"privilege": user.Privilege,
@@ -163,7 +162,6 @@ func loginHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func protectedHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-	// Получаем сессию пользователя
 	session, _ := store.Get(r, "session-name")
 	userID, ok := session.Values["user_id"].(int)
 	if !ok {
@@ -172,7 +170,6 @@ func protectedHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		return
 	}
 
-	// Получаем привилегию пользователя из базы данных
 	var privilege string
 	err := db.QueryRow("SELECT privilege FROM \"User\" WHERE userid = $1", userID).Scan(&privilege)
 	if err != nil {
@@ -185,13 +182,9 @@ func protectedHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		}
 		return
 	}
-
-	// Возвращаем данные в формате JSON
-	response := map[string]interface{}{
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{
 		"user_id":   userID,
 		"privilege": privilege,
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(response)
+	})
 }

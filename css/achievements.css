@@ -1,4 +1,3 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,50 +9,45 @@ body {
     box-sizing: border-box;
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-/* Контейнер для основного контента */
 main {
     flex: 1;
 }
 
 /*/////////////////////////////////////////////////Достижения///////////////////////////////////////////////////////////////////////////////*/
 
-/* Контейнер для контента */
 .content-container {
     margin-top: 2vw;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 4vw; /* Расстояние между контейнерами */
+    gap: 4vw; 
     width: 100%;
-    padding: 20px; /* Добавляем отступы для лучшего выравнивания */
+    padding: 20px; 
 }
 
-/* Контейнер для изображения и текста */
 .content-item {
     display: flex;
-    align-items: center; /* Центрирование текста вертикально */
-    gap: 20px; /* Расстояние между изображением и текстом */
+    align-items: center;
+    gap: 20px; 
     width: 100%;
-    max-width: 45%; /* Ограничиваем максимальную ширину контейнера */
-    position: relative; /* Добавляем position relative для анимации */
-    overflow: hidden; /* Скрываем переполнение */
+    max-width: 45%; 
+    position: relative; 
+    overflow: hidden;
 }
 
 .content-item img {
-    max-width: 55%; /* Уменьшаем ширину изображений */
+    max-width: 55%; 
     height: auto;
-    border-radius: 8px; /* Скругление углов изображений */
+    border-radius: 8px; 
 }
 
-/* Применяем анимации к четным и нечетным изображениям */
 .content-item:nth-child(even) img {
     -webkit-animation: sliderShape1 5s linear infinite;
     animation: sliderShape1 5s linear infinite;
@@ -66,43 +60,42 @@ main {
 
 .main-text {
     font-family: 'Inter', sans-serif;
-    font-weight: 400; /* Менее жирный шрифт */
-    font-size: 18px; /* Уменьшаем размер текста */
-    line-height: 1.5; /* Улучшаем межстрочное расстояние */
+    font-weight: 400; 
+    font-size: 18px; 
+    line-height: 1.5; 
     color: #714480f6;
-    text-align: center; /* Центрирование текста */
-    padding: 0 20px; /* Добавляем отступы слева и справа */
+    text-align: center; 
+    padding: 0 20px; 
 }
 
-/* Фигура с анимацией 1 */
 .slider-shape-1 {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.2); /* Цвет фона фигуры */
-    z-index: -1; /* Фигура находится позади текста */
+    background-color: rgba(255, 255, 255, 0.2); 
+    z-index: -1; 
     animation: sliderShape1 5s infinite;
     transform-origin: center center;
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
 }
 
-/* Фигура с анимацией 2 */
+
 .slider-shape-2 {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.2); /* Цвет фона фигуры */
-    z-index: -1; /* Фигура находится позади текста */
+    background-color: rgba(255, 255, 255, 0.2); 
+    z-index: -1; 
     animation: sliderShape2 5s infinite;
     transform-origin: center center;
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
 }
 
-/* Анимация фона 1 */
+
 @keyframes sliderShape1 {
     0%, 100% {
         border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
@@ -121,7 +114,7 @@ main {
     }
 }
 
-/* Анимация фона 2 */
+
 @keyframes sliderShape2 {
     0%, 100% {
         border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
@@ -140,7 +133,6 @@ main {
     }
 }
 
-/* Фигура с анимацией */
 .slider-shape1 {
     position: absolute;
     top: 0;
@@ -149,8 +141,8 @@ main {
     bottom: 0;
     width: 60%;
     height: 80%;
-    background-color: #71448056; /* Цвет фона фигуры */
-    z-index: -1; /* Фигура находится позади текста */
+    background-color: #71448056;
+    z-index: -1; 
     animation: sliderShape1 5s infinite;
     transform-origin: center center;
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
@@ -163,15 +155,14 @@ main {
     bottom: 0;
     width: 60%;
     height: 80%;
-    background-color: #71448056; /* Цвет фона фигуры */
-    z-index: -1; /* Фигура находится позади текста */
+    background-color: #71448056;
+    z-index: -1; 
     animation: sliderShape2 5s infinite;
     transform-origin: center center;
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
 }
 
 
-/* Медиа-запросы для адаптации под разные разрешения экранов */
 @media (max-width: 1200px) {
     .main-text {
         font-size: 16px;
@@ -208,49 +199,49 @@ main {
 /*/////////////////////////////////////////////////Поездки///////////////////////////////////////////////////////////////////////////////*/
 .contests-wrapper {
     position: relative;
-    padding: 10vw 2vw; /* Увеличенные отступы сверху и снизу */
+    padding: 10vw 2vw; 
 }
 
 .contests {
     display: flex;
-    flex-direction: row; /* Горизонтальное расположение конкурсов */
-    justify-content: space-evenly; /* Равномерное распределение пространства */
+    flex-direction: row; 
+    justify-content: space-evenly; 
     align-items: flex-start;
-    gap: 3vw; /* Расстояние между конкурсами */
-    background: transparent; /* Прозрачный фон */
+    gap: 3vw; 
+    background: transparent; 
 }
 
 .contest {
     display: flex;
-    flex-direction: column; /* Вертикальное расположение внутри конкурса */
+    flex-direction: column; 
     align-items: center;
-    width: 32%; /* Увеличенная ширина каждого конкурса */
+    width: 32%; 
     border-radius: 15px;
     overflow: hidden;
-    background: #fff; /* Белый фон для контраста */
+    background: #fff; 
     transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, min-height 0.4s ease;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Устанавливаем слой выше базового уровня */
-    transform: scale(1); /* По умолчанию стандартный размер */
-    min-height: 30vw; /* Увеличенная минимальная высота */
+    z-index: 1; 
+    transform: scale(1); 
+    min-height: 30vw; 
 }
 
 .contest:hover {
-    transform: scale(1.03); /* Лёгкое увеличение при наведении */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Усиленная тень */
-    background: linear-gradient(to bottom, #fff, #f0f0f0); /* Лёгкий градиент при наведении */
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+    background: linear-gradient(to bottom, #fff, #f0f0f0); 
 }
 
 .contest-photo img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 15px 15px 0 0; /* Скругление только сверху */
+    border-radius: 15px 15px 0 0; 
     transition: transform 0.4s ease;
 }
 
 .contest:hover .contest-photo img {
-    transform: scale(1.05); /* Лёгкое увеличение изображения при наведении */
+    transform: scale(1.05);
 }
 
 .contest-info {
@@ -259,12 +250,12 @@ main {
     font-family: 'Roboto', sans-serif;
     color: #333;
     transition: opacity 0.3s ease, max-height 0.3s ease;
-    max-height: 0; /* Скрыть текст */
+    max-height: 0; 
 }
 
 .contest-info p {
     margin: 0;
-    font-size: 1.2vw; /* Уменьшенный размер текста */
+    font-size: 1.2vw; 
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -273,5 +264,5 @@ main {
 }
 
 .contest-info:hover p {
-    color: #714480f6; /* Более насыщенный цвет заголовка при наведении */
+    color: #714480f6; 
 }

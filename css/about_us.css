@@ -33,7 +33,7 @@ main {
     gap: 10vw;
     width: 100%;
     max-width: 80%;
-    margin: -4vw auto; /* Увеличили нижний отступ */
+    margin: -4vw auto;
     transition: transform 0.3s ease;
     flex-wrap: nowrap;
     justify-content: center;
@@ -132,56 +132,56 @@ main {
 /*/////////////////////////////////////////////////Группы///////////////////////////////////////////////////////////////////////////////*/
 .groups-wrapper {
     position: relative;
-    padding: 10vw 2vw; /* Увеличенные отступы сверху и снизу */
+    padding: 10vw 2vw; 
 }
 
 .groups {
     display: flex;
-    flex-direction: row; /* Горизонтальное расположение групп */
-    justify-content: space-evenly; /* Равномерное распределение пространства */
+    flex-direction: row; 
+    justify-content: space-evenly; 
     align-items: flex-start;
-    gap: 3vw; /* Расстояние между группами */
-    background: transparent; /* Прозрачный фон */
+    gap: 3vw; 
+    background: transparent; 
 }
 
 .group {
     display: flex;
-    flex-direction: column; /* Вертикальное расположение внутри группы */
+    flex-direction: column; 
     align-items: center;
-    width: 28%; /* Ширина каждой группы */
+    width: 28%; 
     border-radius: 15px;
     overflow: hidden;
-    background: #fff; /* Белый фон для контраста */
+    background: #fff; 
     transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, min-height 0.4s ease;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Устанавливаем слой выше базового уровня */
-    transform: scale(1); /* По умолчанию стандартный размер */
-    min-height: 25vw; /* Минимальная высота, если текст скрыт */
+    z-index: 1; 
+    transform: scale(1); 
+    min-height: 25vw; 
 }
 
 .group.active {
-    transform: scale(1.2); /* Увеличенная карточка */
-    z-index: 3; /* Выше остальных */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
-    min-height: 38vw; /* Увеличенная высота при активной карточке с описанием */
+    transform: scale(1.2); 
+    z-index: 3; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+    min-height: 38vw; 
 }
 
 .group:hover {
-    transform: scale(1.03); /* Лёгкое увеличение при наведении */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Усиленная тень */
-    background: linear-gradient(to bottom, #fff, #f0f0f0); /* Лёгкий градиент при наведении */
+    transform: scale(1.03); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+    background: linear-gradient(to bottom, #fff, #f0f0f0); 
 }
 
 .group-photo img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 15px 15px 0 0; /* Скругление только сверху */
+    border-radius: 15px 15px 0 0; 
     transition: transform 0.4s ease;
 }
 
 .group:hover .group-photo img {
-    transform: scale(1.05); /* Лёгкое увеличение изображения при наведении */
+    transform: scale(1.05); 
 }
 
 .group-info {
@@ -190,12 +190,11 @@ main {
     font-family: 'Roboto', sans-serif;
     color: #333;
     transition: opacity 0.3s ease, max-height 0.3s ease;
-    max-height: 0; /* Скрыть текст */
+    max-height: 0; 
 }
 
-/* Когда карточка активна, показываем текст p */
 .group.active .group-info p {
-    opacity: 1; /* Текст появляется при активации */
+    opacity: 1; 
 }
 
 .group-info h2 {
@@ -213,31 +212,29 @@ main {
     line-height: 1.4;
     margin: 0;
     color: #555;
-    opacity: 0; /* Скрытие текста p по умолчанию */
+    opacity: 0; 
     transition: opacity 0.3s ease;
 }
 
-/* Когда карточка активна, показываем текст p */
 .group.active .group-info p {
-    opacity: 1; /* Текст появляется при активации */
+    opacity: 1; 
 }
 
 .group-info:hover h2 {
-    color: #714480f6; /* Более насыщенный цвет заголовка при наведении */
+    color: #714480f6; 
 }
 
 .group-info:hover p {
-    color: #333; /* Текст становится ярче при наведении */
+    color: #333; 
 }
 
-/* Стили для стрелок */
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 4vw;
     height: 4vw;
-    background: rgba(164, 92, 192, 0.8); /* Полупрозрачный фон */
+    background: rgba(164, 92, 192, 0.8); 
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -248,7 +245,7 @@ main {
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background 0.3s ease;
-    z-index: 2; /* Выше карточек */
+    z-index: 2; 
 }
 
 .arrow:hover {
@@ -269,11 +266,11 @@ main {
     color: #333;
     position: relative;
     padding: 6vw;
-    margin: -4vw auto 2vw; /* Увеличили нижний отступ */
+    margin: -4vw auto 2vw; 
     width: 80%;
     max-width: 600px;
     text-align: center;
-    z-index: 1; /* Текст будет поверх фигуры */
+    z-index: 1; 
 }
 
 .payment-info h2 {
@@ -281,7 +278,7 @@ main {
     font-weight: 700;
     color: #714480f6;
     margin-bottom: 2vw;
-    position: relative; /* Задаём позицию для текста */
+    position: relative; 
 }
 
 .price {
@@ -319,21 +316,19 @@ main {
     margin-top: 1vw;
 }
 
-/* Фигура с анимацией */
 .slider-shape {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fdf7f7; /* Цвет фона фигуры */
-    z-index: -1; /* Фигура находится позади текста */
+    background-color: #fdf7f7; 
+    z-index: -1; 
     animation: sliderShape 5s infinite;
     transform-origin: center center;
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
 }
 
-/* Анимация фона */
 @keyframes sliderShape {
     0%, 100% {
         border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;

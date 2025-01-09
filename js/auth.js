@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Проверка наличия сессии
     fetch('http://localhost:8080/protected', {
         method: 'GET',
-        credentials: 'include' // Включите эту строку для отправки куки
+        credentials: 'include' // Включим эту строку для отправки куки
     })
     .then(response => {
         if (response.ok) {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ login, password }),
-            credentials: 'include' // Включите эту строку для отправки куки
+            credentials: 'include' 
         })
         .then(response => {
             if (response.ok) {
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessage.textContent = errorData.message;
 
              // Изменение цвета текста ошибки и добавление отступа снизу
-            errorMessage.style.color = 'red'; // Цвет текста ошибки
-            errorMessage.style.marginBottom = '10px'; // Отступ снизу
+            errorMessage.style.color = 'red';
+            errorMessage.style.marginBottom = '10px'; 
         
             if (errorData.message === 'Такого пользователя не существует') {
                 loginInput.style.borderColor = 'red';

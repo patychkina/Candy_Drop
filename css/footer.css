@@ -1,49 +1,44 @@
-/* Стиль футера */
 .site-footer {
     width: 100%;
-    background-color: #1c1c1c; /* Темный фон */
+    background-color: #1c1c1c;
     color: #fff;
-    padding: 1vw 2vw; /* Уменьшаем отступы */
+    padding: 1vw 2vw;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для футера */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    margin-top: auto; /* Футер всегда внизу */
+    margin-top: auto;
 }
 
-/* Контейнер для контента футера */
 .footer-content {
-    max-width: 100%; /* Уменьшаем максимальную ширину */
+    max-width: 100%;
     margin: 0 auto;
 }
 
-/* Текст в футере */
 .footer-content p {
     margin: 0;
-    font-size: 12px; /* Уменьшаем размер текста */
+    font-size: 12px;
     font-weight: 300;
     line-height: 1.5;
 }
 
-/* Ссылки футера */
 .footer-links {
-    margin-top: 10px; /* Уменьшаем отступ сверху */
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 12px; /* Уменьшаем расстояние между ссылками */
+    gap: 12px;
 }
 
 .footer-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 11px; /* Уменьшаем размер текста ссылок */
+    font-size: 11px;
     font-weight: 500;
     position: relative;
 }
 
-/* Эффект при наведении на ссылки */
 .footer-links a:hover {
-    color: #ba91e293; /* Цвет ссылки при наведении */
+    color: #ba91e293;
 }
 
 .footer-links a::after {
@@ -64,18 +59,16 @@
     transform-origin: bottom left;
 }
 
-/* Секция социальных иконок */
 .footer-social {
-    margin-top: 15px; /* Уменьшаем отступ сверху */
+    margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 25px; /* Увеличиваем расстояние между иконками */
-    flex-wrap: nowrap; /* Иконки остаются на одной строке */
+    gap: 25px;
+    flex-wrap: nowrap;
 }
 
-/* Иконки социальных сетей */
 .social-icon {
-    width: 28px; /* Уменьшаем размер иконок */
+    width: 28px;
     height: 28px;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.7;
@@ -83,70 +76,65 @@
 }
 
 .social-icon:hover {
-    transform: scale(1.1); /* Увеличение при наведении */
+    transform: scale(1.1);
     opacity: 1;
 }
 
-/* Пространство перед футером */
 .spacer {
-    height: 60px; /* Расстояние по умолчанию для десктопов */
+    height: 60px;
 }
 
-
-/* Адаптивный дизайн */
 @media (max-width: 1200px) {
     .card {
-        width: 220px; /* Уменьшаем ширину карточек */
-        padding: 35px 25px; /* Уменьшаем внутренние отступы */
+        width: 220px;
+        padding: 35px 25px;
     }
     .title {
-        font-size: 1.4em; /* Уменьшаем размер заголовка */
+        font-size: 1.4em;
     }
     .description {
-        font-size: 0.9em; /* Уменьшаем размер текста */
+        font-size: 0.9em;
     }
 }
 
-/* Для планшетов */
 @media (max-width: 1024px) {
     .spacer {
-        height: 70px; /* Уменьшаем пространство для планшетов */
+        height: 70px;
     }
 
     .footer-social {
-        gap: 20px; /* Увеличиваем расстояние между иконками для планшетов */
+        gap: 20px;
     }
 
     .social-icon {
-        width: 24px; /* Уменьшаем размер иконок для планшетов */
+        width: 24px;
         height: 24px;
     }
 }
 
-/* Для мобильных устройств */
 @media (max-width: 768px) {
     .spacer {
-        height: 50px; /* Еще меньше для мобильных устройств */
+        height: 50px;
     }
 
     .footer-links {
-        flex-direction: column; /* Расположение ссылок в колонку */
+        flex-direction: column;
     }
 
     .footer-social {
-        justify-content: center; /* Иконки центрируются по ширине */
-        gap: 12px; /* Увеличиваем расстояние между иконками для мобильных устройств */
+        justify-content: center;
+        gap: 12px;
     }
 
     .social-icon {
-        width: 20px; /* Еще меньше для мобильных устройств */
+        width: 20px;
         height: 20px;
     }
 }
 
 @media (max-width: 992px) {
     .card {
-        width: 200px; /* Ещё меньше ширина */
+        width: 200px;
         padding: 30px 20px;
     }
     .title {
@@ -185,27 +173,27 @@
 
 @media (max-width: 240px) {
     .container {
-        gap: 15px; /* Уменьшаем расстояние между карточками */
+        gap: 15px;
     }
 
     .card {
-        width: 95%; /* Карточка будет занимать почти всю ширину экрана */
-        padding: 20px 15px; /* Уменьшаем внутренние отступы */
-        border-radius: 15px; /* Уменьшаем радиус скругления */
+        width: 95%;
+        padding: 20px 15px;
+        border-radius: 15px;
     }
 
     .card::before {
         width: 150px;
         height: 150px;
         top: -40px;
-        left: -40px; /* Уменьшаем размеры декоративного круга */
+        left: -40px;
     }
 
     .title {
-        font-size: 1.2em; /* Уменьшаем размер заголовка */
+        font-size: 1.2em;
     }
 
     .description {
-        font-size: 0.9em; /* Уменьшаем размер текста описания */
+        font-size: 0.9em;
     }
 }

@@ -1,28 +1,24 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%; /* Оставляем 100% для всего тела страницы */
+    height: 100%; 
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden; 
+    box-sizing: border-box; 
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    min-height: 100vh; 
 }
 
-/* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1; 
 }
 
-/* Центрирование контейнера регистрации */
 .container {
     display: flex;
     justify-content: center;
@@ -30,15 +26,15 @@ main {
 }
 .teacher-profile {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 100%; /* Растянуть на всю высоту контейнера */
-    min-height: calc(100vh - 200px); /* Учет высоты хедера и футера */
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    min-height: calc(100vh - 200px);
     text-align: center;
 }
 
 .teacher-profile h1 {
-    font-size: 2.5rem; /* Размер текста */
-    font-weight: bold; /* Жирный шрифт */
-    color: #333; /* Цвет текста */
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    color: #333;
 }

@@ -1,48 +1,43 @@
-/* Основные стили для всей страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%; /* Оставляем 100% для всего тела страницы */
+    height: 100%;
     background: linear-gradient(0deg, #d6bcf8, #f1f1f1f1);
-    overflow-x: hidden; /* Убираем горизонтальный ползунок */
-    box-sizing: border-box; /* Включаем отступы и границы в общую ширину */
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-/* Контейнер страницы, чтобы задать минимальную высоту */
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Высота контейнера будет на всю высоту экрана */
+    min-height: 100vh;
 }
 
-/* Контейнер для основного контента */
 main {
-    flex: 1; /* Это позволяет main занять оставшуюся часть пространства */
+    flex: 1;
 }
 
-/* Центрирование контейнера регистрации */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Центрирование контейнера регистрации */
 .auth-box {
     background-color: #fffeff;
-    padding: 1.5vw; /* Уменьшаем внутренние отступы */
+    padding: 1.5vw;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     width: 90%;
     max-width: 500px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    margin-top: 1rem;  /* Один и тот же отступ сверху */
-    margin-bottom: 1rem;  /* Один и тот же отступ снизу */
-    margin-left: 1rem;  /* Один и тот же отступ сверху */
-    margin-right: 1rem;  /* Один и тот же отступ снизу */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .auth-title {
@@ -113,14 +108,11 @@ main {
     }
 }
 
-/* Адаптивный дизайн */
-
-/* Планшеты и маленькие ноутбуки */
 @media (max-width: 1024px) {
     .auth-box {
-        padding: 1.5rem; /* Уменьшаем отступы */
-        margin-top: 1rem; /* Один и тот же отступ сверху */
-        margin-bottom: 1rem; /* Один и тот же отступ снизу */
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .auth-title {
@@ -137,16 +129,15 @@ main {
     }
 }
 
-/* Мобильные устройства */
 @media (max-width: 768px) {
     .container {
-        height: auto; /* Высота контейнера адаптируется под контент */
+        height: auto;
     }
 
     .auth-box {
         padding: 1.2rem;
-        margin-top: 1rem; /* Один и тот же отступ сверху */
-        margin-bottom: 1rem; /* Один и тот же отступ снизу */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .auth-title {
@@ -168,13 +159,12 @@ main {
     }
 }
 
-/* Очень маленькие экраны (меньше 480px) */
 @media (max-width: 480px) {
     .auth-box {
         padding: 1rem;
         border-radius: 15px;
-        margin-top: 1rem; /* Один и тот же отступ сверху */
-        margin-bottom: 1rem; /* Один и тот же отступ снизу */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .auth-title {
@@ -196,37 +186,36 @@ main {
     }
 }
 
-/* Очень маленькие экраны (меньше 320px) */
 @media (max-width: 320px) {
     .auth-box {
-        padding: 0.8rem; /* Уменьшаем внутренние отступы */
-        border-radius: 10px; /* Еще больше уменьшаем радиус */
-        margin-top: 1rem; /* Один и тот же отступ сверху */
-        margin-bottom: 1rem; /* Один и тот же отступ снизу */
+        padding: 0.8rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .auth-title {
-        font-size: 1.1rem; /* Уменьшаем размер заголовка */
-        margin-bottom: 0.8rem; /* Уменьшаем отступ снизу */
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
     }
 
     .auth-input {
-        font-size: 0.7rem; /* Уменьшаем шрифт */
-        padding: 0.4rem; /* Уменьшаем отступ внутри */
+        font-size: 0.7rem;
+        padding: 0.4rem;
     }
 
     .auth-button {
-        font-size: 0.7rem; /* Уменьшаем шрифт кнопки */
-        padding: 0.4rem; /* Уменьшаем высоту кнопки */
-        border-radius: 15px; /* Радиус кнопки чуть меньше */
+        font-size: 0.7rem;
+        padding: 0.4rem;
+        border-radius: 15px;
     }
 
     .auth-footer {
-        font-size: 0.7rem; /* Уменьшаем размер текста футера */
+        font-size: 0.7rem;
     }
 
     .container {
-        height: auto; /* Высота контейнера адаптируется под контент */
-        padding: 1rem; /* Добавляем внутренние отступы */
+        height: auto;
+        padding: 1rem;
     }
 }
