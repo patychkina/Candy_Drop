@@ -84,19 +84,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => {
-            const errorData = JSON.parse(error.message);
+            let errorData;
+            try {
+                errorData = JSON.parse(error.message);
+            } catch (e) {
+                errorData = { message: 'Unknown error' };
+            }
+        
             errorMessage.style.display = 'block';
-            errorMessage.textContent = error.message;
+            errorMessage.textContent = errorData.message;
 
+             // Изменение цвета текста ошибки и добавление отступа снизу
+            errorMessage.style.color = 'red'; // Цвет текста ошибки
+            errorMessage.style.marginBottom = '10px'; // Отступ снизу
+        
             if (errorData.message === 'Такого пользователя не существует') {
                 loginInput.style.borderColor = 'red';
                 passwordInput.style.borderColor = '';
-                alert("User");
             } else if (errorData.message === 'Пароль неверный') {
                 loginInput.style.borderColor = '';
                 passwordInput.style.borderColor = 'red';
-                alert("Pass");
+            } else {
+                loginInput.style.borderColor = 'red';
+                passwordInput.style.borderColor = 'red';
             }
         });
+        
     });
 });

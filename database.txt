@@ -1,0 +1,114 @@
+-- Create the User table for authentication
+CREATE TABLE "User" (
+    UserID       SERIAL PRIMARY KEY,
+    Login        VARCHAR(200) NOT NULL UNIQUE,
+    Password     VARCHAR(200) NOT NULL,
+    Privilege    VARCHAR(20) NOT NULL
+);
+
+-- Create the Parent table with UserID
+CREATE TABLE Parent (
+    ID_Parent    SERIAL PRIMARY KEY,
+    Name         VARCHAR(20),
+    Surname      VARCHAR(20),
+    Middlename   VARCHAR(20),
+    UserID       INTEGER NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES "User"(UserID)
+);
+
+-- Create the Teacher table with UserID
+CREATE TABLE Teacher (
+    ID_Teacher   SERIAL PRIMARY KEY,
+    Name         VARCHAR(20),
+    Surname      VARCHAR(20),
+    Middlename   VARCHAR(20),
+    UserID       INTEGER NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES "User"(UserID)
+);
+
+-- Create the Group table with TeacherID
+CREATE TABLE "Group" (
+    ID_Group     SERIAL,
+    Title        VARCHAR(20),
+    Age_category VARCHAR(20),
+    ID_Teacher   INTEGER NOT NULL,
+    PRIMARY KEY (ID_Group, ID_Teacher),
+    FOREIGN KEY (ID_Teacher) REFERENCES Teacher(ID_Teacher)
+);
+
+-- Create the Child table with UserID
+CREATE TABLE Child (
+    Name         VARCHAR(20),
+    Surname      VARCHAR(20),
+    Middlename   VARCHAR(20),
+    ID_Child     SERIAL,
+    ID_Group     INTEGER NOT NULL,
+    ID_Teacher   INTEGER NOT NULL,
+    UserID       INTEGER NOT NULL,
+    PRIMARY KEY (ID_Child, ID_Group, ID_Teacher),
+    FOREIGN KEY (UserID) REFERENCES "User"(UserID),
+    FOREIGN KEY (ID_Group, ID_Teacher) REFERENCES "Group"(ID_Group, ID_Teacher)
+);
+
+-- Create the Schedule table
+CREATE TABLE Schedule (
+    ID_Schedule  SERIAL PRIMARY KEY
+);
+
+-- Create the Post table with TeacherID
+CREATE TABLE Post (
+    ID_Post      SERIAL,
+    Title        VARCHAR(20),
+    Description  VARCHAR(20),
+    ID_Teacher   INTEGER NOT NULL,
+    PRIMARY KEY (ID_Post, ID_Teacher),
+    FOREIGN KEY (ID_Teacher) REFERENCES Teacher(ID_Teacher)
+);
+
+-- Create the Photo table with PostID and TeacherID
+CREATE TABLE Photo (
+    ID_Photo     SERIAL,
+    URL          VARCHAR(20),
+    ID_Post      INTEGER NOT NULL,
+    ID_Teacher   INTEGER NOT NULL,
+    PRIMARY KEY (ID_Photo, ID_Post, ID_Teacher),
+    FOREIGN KEY (ID_Post, ID_Teacher) REFERENCES Post(ID_Post, ID_Teacher)
+);
+
+-- Create the Class table with GroupID, TeacherID, and ScheduleID
+CREATE TABLE Class (
+    ID_Class     SERIAL,
+    Date_Class   TIMESTAMP,
+    ID_Group     INTEGER NOT NULL,
+    ID_Teacher   INTEGER NOT NULL,
+    ID_Schedule  INTEGER NOT NULL,
+    PRIMARY KEY (ID_Class, ID_Group, ID_Teacher, ID_Schedule),
+    FOREIGN KEY (ID_Group, ID_Teacher) REFERENCES "Group"(ID_Group, ID_Teacher),
+    FOREIGN KEY (ID_Schedule) REFERENCES Schedule(ID_Schedule)
+);
+
+-- Create triggers
+CREATE OR REPLACE FUNCTION tD_Child() RETURNS TRIGGER AS $$
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM "Group"
+        WHERE "Group".ID_Group = OLD.ID_Group AND "Group".ID_Teacher = OLD.ID_Teacher
+        AND NOT EXISTS (
+            SELECT 1
+            FROM Child
+            WHERE Child.ID_Group = "Group".ID_Group AND Child.ID_Teacher = "Group".ID_Teacher
+        )
+    ) THEN
+        RAISE EXCEPTION 'Cannot delete last Child because Group exists.';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER tD_Child
+BEFORE DELETE ON Child
+FOR EACH ROW
+EXECUTE FUNCTION tD_Child();
+
+-- Repeat similar steps for other triggers...
